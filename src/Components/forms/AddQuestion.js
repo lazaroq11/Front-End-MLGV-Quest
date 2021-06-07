@@ -5,7 +5,7 @@ import { Link, useHistory, useParams } from 'react-router-dom'
 
 
 
-export function AddQuestionForm(){ 
+export function AddQuestion(){ 
 
 	const [title,setTitle] = useState();
 	const [category, GetCategory] = useState([]);
@@ -16,6 +16,7 @@ export function AddQuestionForm(){
 	const [required, setRequired]= useState();
 	const [image_alt, setImageAlt] = useState();
     const history = useHistory(); 
+    const params = useParams();
 	
 
 
@@ -27,7 +28,7 @@ export function AddQuestionForm(){
 		
 
 	
-    await api.post(`/question/${selectedAvaliation}/${selectedGroup}`,{
+    await api.post(`/question/${params.exam_id}/${params.group_id}`,{
 		
         statement:title,
 		image_url,
@@ -37,7 +38,7 @@ export function AddQuestionForm(){
 	});
 
 	
-	history.push(`/DropzoneQuestions/${selectedAvaliation}/${selectedGroup}`);
+	history.push('/Home');
     }
 	
 
@@ -70,32 +71,6 @@ export function AddQuestionForm(){
 			<input required type="text" placeholder="Digite a Pergunta" name="name" className="input" 
 			value={title} onChange={e=>setTitle(e.target.value)} />
 			<br/><br/>
-           
-			    
-			<label>Selecione o Avaliação </label><br/>
-			<select className="custom-select" 
-			onChange={(e) => {setSelectedAvaliation(e.target.value)}}>
-				<option value={0}>Selecione uma avaliação</option>
-				{category.map(categoria =>(
-				<option key={categoria.key} value={categoria.id}>{categoria.title}</option>
-				))}
-				</select>		
-					
-             <br></br>
-			 <br></br>
-
-			 	    
-			<label>Selecione o Grupo </label><br/>
-			<select className="custom-select"  
-			onChange={(e) => {setSelectedGroup(e.target.value)}}>
-				<option value={0}>Selecione um grupo</option>
-				{group.map(grupo =>(
-				<option key={grupo.key} value={grupo.id}> {grupo.title} </option>
-				))}
-				
-				</select>
-				<br></br>	
-              <br></br>
 				<div className = "inputs9">
 					<label className="anonimo">Resposta Obrigatória? </label>
 					<input 

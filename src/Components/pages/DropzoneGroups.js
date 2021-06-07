@@ -128,10 +128,12 @@ const DropzoneGroups = () => {
 
     {groups.map(group=>{
          return(
-        <div className="box-info" key={group.id} data-grid={{x: 0, y: 0, w: 1, h: 1}}>
-          <Link to={`/DropzoneQuestions/${params.id}/${group.id}`} className="btGroup">{group.title}</Link> 
+        <div className="box-info" key={group.id} data-grid={{x: 0, y: 0, w: 1, h: 1.2}}>
+          <Link to={`/DropzoneQuestions/${params.id}/${group.id}`} className="btGroup">{group.title}</Link>
+          <p className = "atrelado">Atrelado:{group.classs}</p> 
           <Link to={`/EditGroupForm/${params.id}/${group.id}`} title="Editar" className="btEdit"><BiEditAlt/></Link>
           <Link to="/ShowAvaliation"  className="btDelete" title="Deletar" onClick={()=>handleRemoveGroup(group.id)}><MdDelete/></Link>   
+          
         </div>
         );
         })}

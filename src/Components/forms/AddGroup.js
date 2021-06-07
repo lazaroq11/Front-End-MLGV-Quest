@@ -6,7 +6,7 @@ import '../../App.css';
 
 
 
-export function AddGroupForm(){
+export function AddGroup(){
 	const [classs, setClasss] = useState();
 	const [category, setCategory] = useState([]);
 	const [title, setTitle] = useState();
@@ -18,24 +18,18 @@ export function AddGroupForm(){
 		e.preventDefault();
         
 		console.log(selectedCategory)
-	  const response =  await api.post(`/questiongroup/${selectedCategory}`,{
+	const response = await api.post(`/questiongroup/${params.id}`,{
 		  title,
 		  classs, 
+		 
 		});	 
-		
-    
-		history.push(`/DropzoneGroups/${selectedCategory}`);
+		const {id} = response.data;
+        
+		history.push(`/QuestionFluxo/${params.id}/${id}`);
 	}
     
    
-	useEffect(()=>{
-	  api.get(`/exam`).then(response=>{
-		setCategory(response.data);
-	
-		
-	  });
-	  
-	},);
+
 	
 	   	
 	
@@ -49,19 +43,7 @@ export function AddGroupForm(){
 			<input required type="text" placeholder="Digite o nome do grupo" name="name" className="input" value={title} 
 			onChange={e=>setTitle(e.target.value)} />
 		
-			<br/><br/>
-				<label>Selecione o Avaliação </label><br/>
 			
-			
-			<select className="custom-select"
-			required
-			onChange={(e) => {setSelectedCategory(e.target.value)}} >
-			<option value={0}>Selecione Avaliação</option>
-				{category.map(categoria =>(
-				<option  key={categoria.key}  value={categoria.id}>{categoria.title}</option>
-				
-				))}
-				</select>	
 					<br/><br/>
 					<div className = "inputs8">
 					<label className="anonimo">Atrelado a disciplina </label>

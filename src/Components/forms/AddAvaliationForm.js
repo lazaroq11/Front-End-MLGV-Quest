@@ -1,5 +1,5 @@
 import React, { useState} from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import api from '../../services/api'
 import '../../App.css';
 
@@ -14,7 +14,10 @@ export function AddAvaliationform(){
 	const[started_at, setStartedAt] = useState();
 	const[ended_at, setEndedAt] = useState();
 	const[description,setDescription] = useState();
+	const [avaliation, setAvaliation] = useState();
 	const history = useHistory();
+	 const params = useParams();
+	
 
 
     
@@ -22,16 +25,36 @@ export function AddAvaliationform(){
 	async function PostAvaliation(e){
 		e.preventDefault();
       console.log(allow_anonymous)
-	   await api.post('/exam',{
+	   
+	try{  
+	const response =  await api.post('/exam',{
 		  title,
 		  description,
 		  started_at,
 		  ended_at,
-		  allow_anonymous, 
-		});	   
-		
-	   history.push(`/group`);
+		  allow_anonymous,
+   
+	 
+		});
+		 const {id} = response.data;
+		console.log(response.data);
+	  	history.push(`/GroupFluxo/${id}`);		
+
+	}catch(error){
+		const message = error.response.status
+		if(message == 400){
+		alert("Nome de avaliação existente");
+		}
+
+		if(message == 400){
+
+			alert("Data Inválida")
+		}
 	}
+	
+	}
+
+	
      
 
 
