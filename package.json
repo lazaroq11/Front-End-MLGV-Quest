@@ -1,0 +1,78 @@
+{
+  "name": "mlgv",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@date-io/date-fns": "^1.3.13",
+    "@emotion/react": "^11.4.0",
+    "@material-ui/core": "^5.0.0-alpha.34",
+    "@material-ui/pickers": "^3.3.10",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.8.3",
+    "@wojtekmaj/react-daterange-picker": "^3.2.0",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.0",
+    "cors": "^2.8.5",
+    "date-fns": "^2.22.1",
+    "express": "^4.17.1",
+    "history": "^2.0.1",
+    "next": "^10.2.0",
+    "node-sass": "^4.14.1",
+    "react": "^17.0.2",
+    "react-beautiful-dnd": "^13.1.0",
+    "react-date-range": "^1.1.3",
+    "react-datepicker": "^3.8.0",
+    "react-dates": "^21.8.0",
+    "react-dom": "^17.0.2",
+    "react-dropzone": "^11.3.2",
+    "react-grid-layout": "^1.2.5",
+    "react-hook-form": "^7.5.2",
+    "react-icons": "^4.2.0",
+    "react-radio-group": "^3.0.3",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-select": "^4.3.0",
+    "styled-components": "^5.3.0",
+    "typescript": "^4.3.2",
+    "web-vitals": "^1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev:build-server": "NODE_ENV=development webpack --config webpack.server.js --mode=development -w",
+    "dev:start": "nodemon ./server-build/index.js",
+    "dev": "npm-run-all --parallel build dev:*"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
