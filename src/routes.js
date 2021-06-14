@@ -98,7 +98,7 @@ export default function Routes(){
           <PrivateRoute path='/AddGroup/:exam_id/id' component={AddGroupForm}/>
           <PrivateRoute path='/AddQuestionForm/:exam_id/:question_group_id' component={AddQuestionForm}/>
           <PrivateRoute path = '/ShowAvaliationUser' component = {ShowAvaliationUser}/>
-          <PrivateRoute path = '/QuestionFormUser' component = {QuestionFormUser}/>
+          <PrivateRoute path = '/QuestionFormUser/:id' component = {QuestionFormUser}/>
           <PrivateRoute path = '/Modal' component={Modal}/>
           
           

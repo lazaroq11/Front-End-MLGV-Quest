@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import api from "../../../../services/api"
 import Container from './Container';
@@ -10,7 +10,7 @@ import Modal from '../Modal/Modal'
 
 
 const ShowAvaliationUser = () => {
-
+  const params = useParams();
   const [avaliations, setAvaliations] = useState([]);
 
   useEffect(()=>{
@@ -63,11 +63,9 @@ const ShowAvaliationUser = () => {
                     <p>Descrição: {avaliation.description}</p>
                     <p>Data de Inicio: {avaliation.started_at}</p>
                     <p>Data Final: {avaliation.ended_at}</p>
-                   <button className="btGroup" >Responder</button>
-                  
-                     <Modal isOpen>
-                        <h1>Teste</h1>
-                     </Modal>
+                   <Link to ={`/QuestionFormUser/${avaliation.id}`} className="btGroup" >Responder</Link>  
+                     
+                    
             
   
 

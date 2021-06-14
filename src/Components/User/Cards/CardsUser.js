@@ -13,7 +13,7 @@ function CardsUser() {
               src='images/img-copy.jpg'
               alt = "avaliacoesDisponiveis"
               text='Avaliações'
-              path='/ShowAvaliationUser' />
+              path='/ShowAvaliationUser/ShowAvaliationUser' />
             </ul>
         </div>
       </div>
