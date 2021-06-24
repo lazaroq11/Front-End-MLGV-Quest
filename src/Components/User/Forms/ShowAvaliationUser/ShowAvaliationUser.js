@@ -12,6 +12,7 @@ import Modal from '../Modal/Modal'
 const ShowAvaliationUser = () => {
   const params = useParams();
   const [avaliations, setAvaliations] = useState([]);
+  const [show, setShow] = useState(false);
 
   useEffect(()=>{
     api.get('/exam').then(response=>{
@@ -63,18 +64,16 @@ const ShowAvaliationUser = () => {
                     <p>Descrição: {avaliation.description}</p>
                     <p>Data de Inicio: {avaliation.started_at}</p>
                     <p>Data Final: {avaliation.ended_at}</p>
-                   <Link to ={`/QuestionFormUser/${avaliation.id}`} className="btGroup" >Responder</Link>  
-                     
-                    
-            
-  
-
-                  </Dropdown>
+                    <button onClick={()=> setShow(true)} className="btGroup">Responder </button>  
+                    <Modal onClose={()=> setShow(false)} show = {show}/>   
+                   </Dropdown>
+                   
                 ) : null}
               </>
               
             );
-            
+                   
+          
           })}
           
           

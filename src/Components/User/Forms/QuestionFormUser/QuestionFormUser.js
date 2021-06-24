@@ -25,9 +25,13 @@ const QuestionFormUser = () => {
     useEffect(()=>{
         api.get(`/questiongroup/${params.id}`).then(response=>{
         setGroups(response.data);
+   
           });
 
-    },[]);
+    },[params.id]);
+    
+    console.group(params.id);
+  
          
     return (
       
@@ -48,7 +52,7 @@ const QuestionFormUser = () => {
                     <div className = "inputs">
 					<label className="anonimo">1</label>
 					<input 
-					type="checkbox"
+					type="radio"
 					onChange={(event)=>setOptionQuestion1(event.currentTarget.checked)}	 
 					className="check" 
                     value={optionQuestion1}
@@ -59,7 +63,7 @@ const QuestionFormUser = () => {
                     <div className = "inputs">
 					<label className="anonimo">2 </label>
 					<input 
-					type="checkbox"
+					type="radio"
 					onChange={(event)=>setOptionQuestion2(event.currentTarget.checked)}	 
 					className="check" 
                     value={optionQuestion2}
@@ -70,7 +74,7 @@ const QuestionFormUser = () => {
                     <div className = "inputs">
 					<label className="anonimo">3</label>
 					<input 
-					type="checkbox"
+					type="radio"
 					onChange={(event)=>setOptionQuestion3(event.currentTarget.checked)}	 
 					className="check" 
                     value={optionQuestion3}
@@ -81,7 +85,7 @@ const QuestionFormUser = () => {
                     <div className = "inputs">
 					<label className="anonimo">4</label>
 					<input 
-					type="checkbox"
+					type="radio"
 					onChange={(event)=>setOptionQuestion4(event.currentTarget.checked)}	 
 					className="check" 
                     value={optionQuestion4}
@@ -92,7 +96,7 @@ const QuestionFormUser = () => {
                     <div className = "inputs">
                     <label classname="anonimo">5</label>    
 					<input 
-					type="checkbox"
+					type="radio"
 					onChange={(event)=>setOptionQuestion5(event.currentTarget.checked)}	 
 					className="check" 
                     value={optionQuestion5}

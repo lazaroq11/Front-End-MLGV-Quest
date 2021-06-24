@@ -1,29 +1,27 @@
-import React, {useState} from 'react'
+import React, {useState, useContext, useCallback} from 'react'
 import {Link} from 'react-router-dom'
 import styles from './styles.module.scss';
 import { VscAccount } from "react-icons/vsc";
 import { MdLockOutline } from "react-icons/md";
 import api from '../../services/api';
+import * as auth from '../../services/auth'
+import {AuthContext} from '../../contexts/auth'
 
 
 
 
-export default function Login({history}){
 
-    const[email,setEmail] = useState('');
+export default function Login(){
+    const[email,setEmail] = useState();
     const[password,setPassword] = useState();
-
-    async function handleSubmit(e){
-        e.preventDefault();
+    const{ signIn } = useContext(AuthContext);
     
-    await api.post('/session',{
-        email,
-        password,
-    });
-       
-    history.push("/Home");
-   
-    }
+  
+    const handleSubmit = useCallback(async(e)=>{
+        e.preventDefault();
+        await signIn({email,password});
+    },[email,password]);
+
 
 
 
@@ -38,14 +36,14 @@ export default function Login({history}){
                 <div className={styles.inputUserLogin}>
                     
                       <VscAccount/>
-                      <input required type="text" id="email" name="email" placeholder="Email"
+                      <input  type="text" id="email" name="email" placeholder="Email"
                       value={email}
                       onChange={e=>setEmail(e.target.value)}/>
                 </div>
 
                 <div className={styles.inputPassLogin}>
                       <MdLockOutline/>
-                      <input required type="password" placeholder="Senha"
+                      <input  type="password" placeholder="Senha"
                       value={password}
                       onChange={e=>setPassword(e.target.value)} />
                 </div>
