@@ -24,6 +24,7 @@ export function Header(){
     
     return(       
     <header className={styles.headerContainer}>
+      
        <Link to="/Home" className="btDelete"> <img src="/logo.png" alt="MLGV QUEST"/></Link>
       
  

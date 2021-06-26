@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from '../Components/Login';
 
 import Home from '../Components/pages/Home';
@@ -10,7 +10,8 @@ import GroupFluxo from '../Components/pages/GroupFluxo';
 import Avaliation from '../Components/pages/Avaliation';
 import Answers from '../Components/pages/Answers';
 import ShowAvaliation from '../Components/pages/ShowAvaliation';
-import { AddAvaliationform } from '../Components/forms/AddAvaliationForm';
+
+
 import {AddQuestionForm} from '../Components/forms/AddQuestionForm';
 import AvaliacoesCadastradas from '../Components/pages/AvaliacoesCadastradas';
 import DropzoneGroups from '../Components/pages/DropzoneGroups';
@@ -21,8 +22,9 @@ import {EditQuestionForm} from '../Components/forms/EditQuestionForm';
 import {EditGroupForm} from '../Components/forms/EditGroupForm';
 import CopyAvaliation from '../Components/forms/CopyAvaliation';
 import {AddGroupForm} from '../Components/forms/AddGroupForm';
-import {AddGroup} from '../Components/forms/AddGroup';
-import {AddQuestion} from '../Components/forms/AddQuestion';
+
+
+
 import PrivateRoutes from './PrivateRoutes';
 
 
@@ -44,7 +46,7 @@ export default function AuthRoutes(){
             <>
          <Header/>
 
-          <PrivateRoutes path='/Home'  component={Home}/>
+          <PrivateRoutes path='/Home'  component={Home} type="manager"/>
           <PrivateRoutes path='/avaliation'  component={Avaliation} />
           <PrivateRoutes path='/group' component={Group} />
           <PrivateRoutes path='/groupfluxo/:id' component={GroupFluxo} />
@@ -53,6 +55,7 @@ export default function AuthRoutes(){
           <PrivateRoutes path='/answers' component={Answers} />
           <PrivateRoutes path='/AvaliacoesCadastradas' component={AvaliacoesCadastradas} />
           <PrivateRoutes path='/Showavaliation' component={ShowAvaliation} />
+          <PrivateRoutes path='/Answers' component={ShowAvaliation} />
           <PrivateRoutes path='/DropzoneGroups/:id' component={DropzoneGroups}/>
           <PrivateRoutes path='/EditAvaliationForm/:id' component={EditAvaliationForm}/>
           <PrivateRoutes path='/EditQuestionForm/:exam_id/:group_id/:id' component={EditQuestionForm}/>

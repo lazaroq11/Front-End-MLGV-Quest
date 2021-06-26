@@ -12,14 +12,14 @@
 
 
 .modal-content {
-    width:600px;
+    width:500px;
     background-color:#fff;
    
     
 }
 
 .modal-header, .modal-footer {
-    padding:10px;
+    padding:5px;
 }
 
 .modal-title{
@@ -28,7 +28,7 @@
 
 
 .modal-body {
-    padding:5px;
+    padding:1px;
     border-top:1px solid black;
     border-bottom:1px solid black;
 }

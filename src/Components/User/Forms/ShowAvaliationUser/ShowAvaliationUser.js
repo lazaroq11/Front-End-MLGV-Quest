@@ -64,8 +64,7 @@ const ShowAvaliationUser = () => {
                     <p>Descrição: {avaliation.description}</p>
                     <p>Data de Inicio: {avaliation.started_at}</p>
                     <p>Data Final: {avaliation.ended_at}</p>
-                    <button onClick={()=> setShow(true)} className="btGroup">Responder </button>  
-                    <Modal onClose={()=> setShow(false)} show = {show}/>   
+                    <Link to={`/QuestionFormUser/${avaliation.id}`} className="btGroup">Responder</Link>
                    </Dropdown>
                    
                 ) : null}

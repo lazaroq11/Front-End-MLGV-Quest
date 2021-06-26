@@ -30,7 +30,7 @@ function Cards() {
               src='images/img-answers.jpg'
               alt = "answers"
               text='Respostas'
-              path='/Home'/>
+              path='/Answers'/>
               
               <CardItem 
               src='images/img-copy.jpg'

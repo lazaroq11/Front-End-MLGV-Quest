@@ -7,10 +7,6 @@ import {AuthProvider} from '../src/contexts/auth'
 
 
 
-
-
-
-
 function App() {
   
   return (
