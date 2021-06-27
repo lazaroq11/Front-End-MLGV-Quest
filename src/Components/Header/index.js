@@ -32,7 +32,7 @@ export function Header(){
       
       
        <span>{currentDate}</span>
-       <button className="btLogout" onClick={handleLogout}><BiLogOut/></button>
+       <Link to className="btLogout" onClick={handleLogout}><BiLogOut/></Link>
     </header>             
     
     )

@@ -1,0 +1,64 @@
+.container-avData{
+    margin-top:11px;
+}
+.charts{
+    
+    font-weight: bolder;
+    font-size:18px;
+    margin-left:10px;
+    font-style:italic;
+}
+
+.chart-container{
+
+    position: relative; 
+    height:30vh; 
+    width:50vw;
+}
+
+.chart-container-pie{
+    position:absolute;
+    right:40px;
+    bottom:-120px;
+    margin-right: 20px;
+    width:300px;
+    height:40vw;
+     width: 30vw;
+     
+}
+
+.linkPlanilha .planilha {
+    background-color:black;
+    font-weight: 800;
+    height: 30px;
+    color:white;
+    border-radius:8px;
+    font-size:13px;
+    border:none;
+    outline:none;
+    position:absolute;
+    bottom:10px;
+    margin-left:20px;
+}
+
+
+.linkPlanilha .planilha:hover{
+    background-color: #171719;
+    cursor:pointer;
+    border:none;
+    outline-width:2;
+    
+  }
+  .Line{
+    position: relative; 
+    height:10vh; 
+    width:1vw;
+  }
+
+  
+  .Line .LineChart{
+   
+    position: relative; 
+    height:10vh; 
+    width:10vw;
+  }

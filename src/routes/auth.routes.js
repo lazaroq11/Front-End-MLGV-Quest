@@ -10,6 +10,7 @@ import GroupFluxo from '../Components/pages/GroupFluxo';
 import Avaliation from '../Components/pages/Avaliation';
 import Answers from '../Components/pages/Answers';
 import ShowAvaliation from '../Components/pages/ShowAvaliation';
+import AvaliationData from '../Components/pages/AvaliationData/AvaliationData'
 
 
 import {AddQuestionForm} from '../Components/forms/AddQuestionForm';
@@ -34,6 +35,7 @@ import QuestionFormUser from '../Components/User/Forms/QuestionFormUser/Question
 import Modal from '../Components/User/Forms/Modal/Modal'
 
 
+
 export default function AuthRoutes(){
 
     return (
@@ -55,7 +57,7 @@ export default function AuthRoutes(){
           <PrivateRoutes path='/answers' component={Answers} />
           <PrivateRoutes path='/AvaliacoesCadastradas' component={AvaliacoesCadastradas} />
           <PrivateRoutes path='/Showavaliation' component={ShowAvaliation} />
-          <PrivateRoutes path='/Answers' component={ShowAvaliation} />
+          <PrivateRoutes path = '/AvaliationData' component = {AvaliationData}/>
           <PrivateRoutes path='/DropzoneGroups/:id' component={DropzoneGroups}/>
           <PrivateRoutes path='/EditAvaliationForm/:id' component={EditAvaliationForm}/>
           <PrivateRoutes path='/EditQuestionForm/:exam_id/:group_id/:id' component={EditQuestionForm}/>
@@ -69,6 +71,7 @@ export default function AuthRoutes(){
           <PrivateRoutes path = '/ShowAvaliationUser' component = {ShowAvaliationUser}/>
           <PrivateRoutes path = '/Modal' component={Modal}/>
           <PrivateRoutes path = '/QuestionFormUser/:id' component = {QuestionFormUser}/>
+          
           </>
           }
 </Switch>

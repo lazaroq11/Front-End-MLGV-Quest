@@ -35,15 +35,15 @@ export const AuthProvider = ({children}) => {
      console.log(authenticateToken.token)
      console.log(authenticateToken.user.type)
      
-     if(authenticateToken.user.type == "manager"){
-       return history.push("/Home")
+     if(authenticateToken.user.type === "manager"){
+      history.push("/Home")
      }
 
-     if(authenticateToken.user.type == "student"){
+     if(authenticateToken.user.type === "student"){
        history.push("/HomeUser")
      }
 
-     if(authenticateToken.user.type == "professor"){
+     if(authenticateToken.user.type === "professor"){
        history.push("/HomeUser")
      }
 

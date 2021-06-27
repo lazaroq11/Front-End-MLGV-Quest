@@ -200,7 +200,6 @@ const Answers = () => {
   useEffect(()=>{
     api.get('/exam').then(response=>{
       setAvaliations(response.data);
-      
     });
   },[]);
 
