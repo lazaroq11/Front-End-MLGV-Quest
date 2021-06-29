@@ -5,75 +5,7 @@ import "../QuestionFormUser/questionform.css"
 
 
 const QuestionFormUser = () => {
-	const questions = [
-		{
-      group: 'Estrutura',
-			questionText: [
-				{question: 'O que você acha da pandemia?'},
-				{question: 'O que você acha da pandemia?'},
-				{question: 'O que você acha da pandemia?'},
-				{question: 'O que você acha da pandemia?'}
-			] ,
-			answerOptions: [
-				{ answerText: '1'},
-				{ answerText: '2'},
-				{ answerText: '3'},
-				{ answerText: '4'},
-                { answerText: '5'},
-			],
-		},
-		
-		{
-			group: 'Estrutura',
-				  questionText: [
-					  {question: 'O que você acha da pandemia?'},
-					  {question: 'O que você acha da pandemia?'},
-					  {question: 'O que você acha da pandemia?'},
-					  {question: 'O que você acha da pandemia?'}
-				  ] ,
-				  answerOptions: [
-					  { answerText: '1'},
-					  { answerText: '2'},
-					  { answerText: '3'},
-					  { answerText: '4'},
-			  { answerText: '5'},
-				  ],
-			  },
-
-			  {
-				group: 'Estrutura',
-					  questionText: [
-						  {question: 'O que você acha da pandemia?'},
-						  {question: 'O que você acha da pandemia?'},
-						  {question: 'O que você acha da pandemia?'},
-						  {question: 'O que você acha da pandemia?'}
-					  ] ,
-					  answerOptions: [
-						  { answerText: '1'},
-						  { answerText: '2'},
-						  { answerText: '3'},
-						  { answerText: '4'},
-				  { answerText: '5'},
-					  ],
-				  },
-
-				  {
-					group: 'Estrutura',
-						  questionText: [
-							  {question: 'O que você acha da pandemia?'},
-							  {question: 'O que você acha da pandemia?'},
-							  {question: 'O que você acha da pandemia?'},
-							  {question: 'O que você acha da pandemia?'}
-						  ] ,
-						  answerOptions: [
-							  { answerText: '1'},
-							  { answerText: '2'},
-							  { answerText: '3'},
-							  { answerText: '4'},
-					  { answerText: '5'},
-						  ],
-					  }
-	];
+	
   const[currentGroup, setCurrentGroup] = useState();
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
@@ -82,6 +14,7 @@ const QuestionFormUser = () => {
 	const params = useParams();
 	let vectorGroup = [];
 	let vectorQuestion = [];
+	const [comment,showComment] =useState();
 
 	useEffect(()=>{
 		api.get(`/questiongroup/${params.id}`).then(response=>{
@@ -108,50 +41,46 @@ const QuestionFormUser = () => {
   console.log(vectorQuestion);
 	
   
-	const handleAnswerOptionClick = () => {
 	
-
-		const nextQuestion = currentQuestion + 1;
-		if (nextQuestion < questions.length) {
-			setCurrentQuestion(nextQuestion);
-		} else {
-			setShowScore(true);
-		}
-	};
 	return (
-	<>
+	 	<div className = "containerForm">
+		<div className='questionForm2'>
+		    	<form  action = "post"className="form">
+				<p className="group">Estrutura</p>
+				<p className="question"> Estrutura a Distância</p>
 
-	{groups.map(group =>{
-	 
-	   return (
-		<>
-		<div className='questionForm'>
-      <div className = "groups">
-      <p>{group.title}</p>
-      </div>
- 	
-		    		<div className='question-section'>
-						<div className='question-count'>
-							<span>Pergunta {currentQuestion + 1}</span>/{questions.length}
-						</div>
-						{questions[currentQuestion].questionText.map((questionTexts) => (
-						<div className='question-text'><p>{questionTexts[groups]}</p></div>
-						))}
-					</div>
-			
-					<div className='answer-section'>
-						
-						{questions[currentQuestion].answerOptions.map((answerOption) => (
-							<button className="buttonAnswer" onClick={() => handleAnswerOptionClick()}>{answerOption.answerText}</button>
-						))}
-					</div>
+				<label for = "radio-1">1</label>	
+			   <input className="optionType" type="radio" value="1" name="option" />
+			  
+			   <label for = "radio-1">2</label>	
+			   <input className="optionType" type="radio" value="2" name="option"/>	
+			   
+			   <label for = "radio-1">3</label>	
+			   <input className="optionType" type="radio" value="3" name="option"/>
+			   
+			   <label for = "radio-1">4</label>	
+			   <input className="optionType" type="radio" value="4" name="option"/>
+			   
+			   <label for = "radio-1">5</label>	
+			   <input className="optionType" type="radio" value="5" name="option"/>
+			  
+				</form>
 
-					</div>
-					</>	
-					
-		       );
-			})}
-        </>
+							
+		</div>
+		  <div className = "coments">
+			  <label for = "coments">Comentários:</label>
+			  <textarea cols="30" rows="5" placeholder="Faça seu comentário!"></textarea>
+		  </div>
+
+		  <div className = "btQuest">
+			  <button className = "btEnviar">Enviar</button>
+			  <button className = "btCancelar">Cancelar</button>
+		  </div>
+		  <footer class="footerSi">Copyright©2021,MLGV. Todos os direitos reservados</footer>
+		</div>
+
+		 
 			);
 		
 			};

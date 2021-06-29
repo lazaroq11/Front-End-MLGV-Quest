@@ -1,5 +1,5 @@
 import React, {createContext,useCallback,useState,useContext} from 'react';
-import {Redirect,Route, RouteProps,useHistory} from 'react-router-dom';
+import {Redirect,Route, RouteProps,useHistory, withRouter} from 'react-router-dom';
 import api from '../services/api';
 
 
@@ -35,16 +35,16 @@ export const AuthProvider = ({children}) => {
      console.log(authenticateToken.token)
      console.log(authenticateToken.user.type)
      
-     if(authenticateToken.user.type === "manager"){
-      history.push("/Home")
+     if(authenticateToken.user.type === 'manager'){
+      history.push("/Home");
      }
 
-     if(authenticateToken.user.type === "student"){
-       history.push("/HomeUser")
+     if(authenticateToken.user.type === 'student'){
+      history.push("/HomeUser");
      }
 
-     if(authenticateToken.user.type === "professor"){
-       history.push("/HomeUser")
+     if(authenticateToken.user.type === 'professor'){
+       history.push("/HomeUser");
      }
 
    
@@ -81,14 +81,14 @@ export const AuthProvider = ({children}) => {
     </AuthContext.Provider>
   );
 };
-
+ 
  function useAuth() {
    const context = useContext(AuthContext);
    return context;
  }
 
  export {useAuth};
-
+ 
 
 
 

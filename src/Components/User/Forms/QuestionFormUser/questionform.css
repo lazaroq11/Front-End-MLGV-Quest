@@ -1,112 +1,140 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,700;1,100;1,500;1,700&display=swap');
 
-.questionForm {
-    background-color:white;
-    width: 800px;
-    min-height: 350px;
-    height: min-content;
-    border-radius: 10px;
-    padding: 60px;
-    box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    margin: 0px;
-    position:relative;
-    margin-top:6%;
-    left:20%;
-    
+
+
+.questionForm2{
+ 
+ margin-top:20px;
+ margin-left:30px;
+ border-width: 1%;
+ border-bottom: 1px solid #c9c9c9;
+ border-top: 1px solid #c9c9c9;
+ margin-top:30px;
+margin-left:30px;
+ 
+}
+
+.questionForm2 label{
+    padding: 9px;
+    font-size:15px;
+    margin-bottom:1px;
+    font-style: italic;
+}
+
+.questionForm2 .group{
+  font-size:15px;
+  margin-bottom:1px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.questionForm2 .question{
+  font-size:15px;
+  color:black;
+  font-style: italic;
+  font-family:  sans-serif;
+  margin-bottom:1px;
+}
+
+
+
+
+ .form .group{
+   margin-top:10px;
+  font-style:italic;
+  font-weight:bolder;
+  font-size:19px;
+ 
+}
+
+.form option{
+  margin-top:10px;
+  margin-left:10px;
+  font-size:30px;
+  padding-left:30px;
+}
+
+.coments{
+  margin-top: 40px;
+}
+
+.coments label{
+  margin-top:30px;
+  margin-left:20px;
+  font-style: italic;
+  
+}
+
+.coments textarea{
+  color:black;
+  border-color:black;
+  border-radius: 10px;
+  outline: none;
+  width:300px;
+  height:100px;
+  margin-left:20px;
+  margin-top:10px;
+
+}
+
+
+
+
+
+.btQuest{
+  margin-top:20px;
+  margin-left:10px;
+}
+
+.btEnviar{
+  width:4%;
+  background-color:black;
+  font-weight: 800;
+  height: 30px;
+  color:white;
+  border-radius:8px;
+  font-size:12px;
+  margin-top:15px;
+  border:none;
+  outline:none;
+  margin-right:10px;
+  }
+  .btEnviar:hover{
+      background-color: #171719;
+      cursor:pointer;
+      border:none;
+      outline-width: 0;
   }
 
-  .groups{
-      text-align: center;
-      align-items: center;
-      display:flex;
-      font-weight: bolder;
-      font-size:20px;
-      position:relative;
-      bottom:30px;
-      left:19%;    
-      margin-left:1%; 
+  .btCancelar{
+    width:4%;
+    background-color:black;
+    font-weight: 800;
+    height: 30px;
+    color:white;
+    border-radius:8px;
+    font-size:12px;
+    margin-top:15px;
+    border:none;
+    outline:none;
+    }
+    .btCancelar:hover{
+        background-color: #171719;
+        cursor:pointer;
+        border:none;
+        outline-width: 0;
+    }
+
       
-  }
-
-
-
-  .score-section {
-    display: flex;
-    font-size: 18px;
-    align-items: center;
-  }
-
-  .question-section {
-    width: 100%;
-    position: relative;
-    margin-top:10%;
-  }
-  
-  .question-count {
-    margin-bottom: 5px;
-    align-items: center;
-  }
-  
-  .question-count span {
-    font-size: 15px;
-    margin-left: 40px;
-  }
-  
-  .question-text {
-    
-    align-items: center;
-    position: relative;
-    margin-bottom:50px;
-    right:7%;
-  }
-  
-  .timer-text {
-    background: rgb(230, 153, 12);
-    padding: 15px;
-    margin-top: 20px;
-    margin-right: 20px;
-    border: 5px solid rgb(255, 189, 67);
-    border-radius: 15px;
-    text-align: center;
-  }
-  
-  /* ANSWERS/RIGHT SECTION */
-  .answer-section {
-    width: 60%;
-    display: flex;
-    flex-direction: inline-block;
-    justify-content: space-between;
-
-    
-
-  }
-
-  .answer-section button{
-    width: 60%;
-    font-size: 11px;
-    color: #ffffff;
-    background-color: black;
-    border-radius: 15px;
-    display: flex;
-    padding: 5px;
-    justify-content: flex-start;
-    align-items: center;
-    border: 5px solid ;
-    cursor: pointer;
-  }
-
-  .answer-section button:hover{
-    background-color: gray;
-  }
-
-  .answer-section button:focus{
-      outline:none;
-  }
-
-  .answer-section button svg{
-      margin-right: 5px;
+    footer{
+      position: fixed;
+      background-color: black;
+      margin: 0;
+      width: 100%;
+      bottom: 0;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 0.7em;
+      font-family: cursive;
+          
   }

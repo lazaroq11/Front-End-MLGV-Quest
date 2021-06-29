@@ -1,4 +1,5 @@
 import React from 'react'
+import { createBrowserHistory } from 'history';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from '../Components/Login';
 
@@ -34,7 +35,7 @@ import ShowAvaliationUser from '../Components/User/Forms/ShowAvaliationUser/Show
 import QuestionFormUser from '../Components/User/Forms/QuestionFormUser/QuestionFormUser';
 import Modal from '../Components/User/Forms/Modal/Modal'
 
-
+const history = createBrowserHistory();
 
 export default function AuthRoutes(){
 
@@ -79,4 +80,4 @@ export default function AuthRoutes(){
        
     );
 
-}
+        }

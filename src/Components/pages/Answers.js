@@ -144,9 +144,9 @@ const Dropdown = styled.div`
        transition:all ease 0.4s;
  }
    
-  .btGroup{
+  .btPlanilha{
     text-decoration:none;
-    width:4.8%;
+    width:10%;
     background-color:black;
     font-weight: 600;
     height: 100px;
@@ -164,7 +164,7 @@ const Dropdown = styled.div`
  
     }
 
-    .btGroup:hover{
+    .btPlanilha:hover{
       background-color: #171719;
         cursor:pointer;
         border:none;
@@ -224,7 +224,7 @@ const Answers = () => {
     
     <IconContext.Provider value={{ color: '#00FFB9', size: '15px' }}>
     <div className="btAvaliation">
-      <Link to="/avaliation" className="btPlus">Cadastrar Avaliação<AiOutlinePlus/></Link> 
+      <Link to="/Home" className="btPlus">Voltar<AiOutlinePlus/></Link> 
       </div>
         <div className="formDiv">    
 		<h1>Avaliações Cadastradas</h1>
@@ -247,7 +247,7 @@ const Answers = () => {
                     <p>Anonimo: {avaliation.allow_anonymous}</p>
                     
                     
-          <Link to={`/AvaliationData/${avaliation.id}`} className="btGroup">Respostas</Link>
+          <button className="btPlanilha">Exportar Planilha</button>
                   </Dropdown>
                 ) : null}
               </>

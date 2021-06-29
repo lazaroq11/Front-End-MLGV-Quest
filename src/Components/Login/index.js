@@ -1,11 +1,11 @@
-import React, {useState, useContext, useCallback} from 'react'
+import React, {useState, useContext, useCallback, useEffect} from 'react'
 import {Link,useHistory} from 'react-router-dom'
 import styles from './styles.module.scss';
 import { VscAccount } from "react-icons/vsc";
 import { MdLockOutline } from "react-icons/md";
 import api from '../../services/api';
 import * as auth from '../../services/auth'
-import {AuthContext} from '../../contexts/auth'
+import {useAuth} from '../../contexts/auth'
 
 
 
@@ -14,13 +14,17 @@ import {AuthContext} from '../../contexts/auth'
 export default function Login(){
     const[email,setEmail] = useState();
     const[password,setPassword] = useState();
-    const{ signIn } = useContext(AuthContext);
+    const{ signIn } = useAuth();
+
+    useEffect(() => {
+        localStorage.removeItem("@PermissionYT:token");
+      }, []);
    
   
     const handleSubmit = useCallback(async(e)=>{
         e.preventDefault();
         await signIn({email,password});
-      
+        
        
     },[email,password]);
 
