@@ -49,7 +49,7 @@ export default function AuthRoutes(){
             <>
          <Header/>
 
-          <PrivateRoutes path='/Home'  component={Home} type="manager"/>
+          <PrivateRoutes exact path='/Home'  component={Home} type="manager"/>
           <PrivateRoutes path='/avaliation'  component={Avaliation} />
           <PrivateRoutes path='/group' component={Group} />
           <PrivateRoutes path='/groupfluxo/:id' component={GroupFluxo} />
@@ -68,7 +68,7 @@ export default function AuthRoutes(){
           <PrivateRoutes path='/AddGroupForm/:exam_id' component={AddGroupForm}/>
           <PrivateRoutes path='/AddGroup/:exam_id/id' component={AddGroupForm}/>
           <PrivateRoutes path='/AddQuestionForm/:exam_id/:question_group_id' component={AddQuestionForm}/> 
-          <PrivateRoutes path='/HomeUser' roles={['user']} component={HomeUser}/>  
+          <PrivateRoutes exact path='/HomeUser' component={HomeUser}/>  
           <PrivateRoutes path = '/ShowAvaliationUser' component = {ShowAvaliationUser}/>
           <PrivateRoutes path = '/Modal' component={Modal}/>
           <PrivateRoutes path = '/QuestionFormUser/:id' component = {QuestionFormUser}/>

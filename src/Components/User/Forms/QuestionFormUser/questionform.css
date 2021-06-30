@@ -71,19 +71,39 @@ margin-left:30px;
   border-radius: 10px;
   outline: none;
   width:300px;
-  height:100px;
+  height:80px;
   margin-left:20px;
-  margin-top:10px;
+  
+
+}
+.anonimo{
+  margin-bottom:1%;
+  margin-right:50%;
+  bottom:80px;
+  float:right;
+}
+
+.anonimo label{
+ 
+  font-weight:500;
+  font-style:italic;
 
 }
 
-
+.anonimo input{
+  margin-left:10px;
+  
+}
 
 
 
 .btQuest{
   margin-top:20px;
   margin-left:10px;
+  margin-bottom:30px;
+  
+ 
+
 }
 
 .btEnviar{
@@ -94,10 +114,13 @@ margin-left:30px;
   color:white;
   border-radius:8px;
   font-size:12px;
-  margin-top:15px;
+  margin-top:10px;
+  margin-left:10px;
   border:none;
   outline:none;
   margin-right:10px;
+   
+  
   }
   .btEnviar:hover{
       background-color: #171719;
@@ -115,26 +138,23 @@ margin-left:30px;
     border-radius:8px;
     font-size:12px;
     margin-top:15px;
+    margin-left:10px;
     border:none;
     outline:none;
+    text-decoration: none;
     }
     .btCancelar:hover{
         background-color: #171719;
         cursor:pointer;
         border:none;
         outline-width: 0;
+        text-decoration: none;
+    }
+
+    .btCancelar a{
+       text-decoration: none;
+       color:white;
     }
 
       
-    footer{
-      position: fixed;
-      background-color: black;
-      margin: 0;
-      width: 100%;
-      bottom: 0;
-      color: #FFFFFF;
-      text-align: center;
-      font-size: 0.7em;
-      font-family: cursive;
-          
-  }
+   

@@ -10,79 +10,100 @@ const QuestionFormUser = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [groups, setGroups] = useState([]);
-	const [question, setQuestions] = useState([]);
+	let [question, setQuestions] = useState([]);
+	const [option,setOption] = useState(0);
 	const params = useParams();
-	let vectorGroup = [];
+     let vectorGroup = [];
 	let vectorQuestion = [];
 	const [comment,showComment] =useState();
 
 	useEffect(()=>{
 		api.get(`/questiongroup/${params.id}`).then(response=>{
 		  setGroups(response.data);
-		
 		});
 		
 	  },[]);
         
 		groups.map(group =>{
 			vectorGroup.push(group.id);
-		
 	  })
 	  
-	   
+	  
 	
 
 	  vectorGroup.map(vectorGroups =>{
 		
 		api.get(`/question/${params.id}/${vectorGroups}`).then(response=>{
 			vectorQuestion.push(response.data);
-		  });		 
-  })
-  console.log(vectorQuestion);
+		  
+		  });
+		  console.log(vectorQuestion);
+		   		  
+  })  
+        
+  	
+  
+
+		
 	
   
-	
 	return (
 	 	<div className = "containerForm">
 		<div className='questionForm2'>
-		    	<form  action = "post"className="form">
-				<p className="group">Estrutura</p>
-				<p className="question"> Estrutura a Distância</p>
-
+		
+		{groups.map(group=>(
+				<form  action = "post"className="form">
+				<p className="group">{group.title}</p>
+				
+                			   
+		{vectorQuestion.map( questions => (
+				<div className = "questionContainer">
+				<p className="question">{questions}</p>
 				<label for = "radio-1">1</label>	
-			   <input className="optionType" type="radio" value="1" name="option" />
+			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name="option" />
 			  
-			   <label for = "radio-1">2</label>	
-			   <input className="optionType" type="radio" value="2" name="option"/>	
+			   <label for = "radio-2">2</label>	
+			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name="option"/>	
 			   
-			   <label for = "radio-1">3</label>	
-			   <input className="optionType" type="radio" value="3" name="option"/>
+			   <label for = "radio-3">3</label>	
+			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio" name="option"/>
 			   
-			   <label for = "radio-1">4</label>	
-			   <input className="optionType" type="radio" value="4" name="option"/>
+			   <label for = "radio-4">4</label>	
+			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name="option"/>
 			   
-			   <label for = "radio-1">5</label>	
-			   <input className="optionType" type="radio" value="5" name="option"/>
+			   <label for = "radio-5">5</label>	
+			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio" name="option"/>  
+			   </div>
 			  
+		))}
+			   
+		
 				</form>
-
-							
+				))}		
 		</div>
 		  <div className = "coments">
 			  <label for = "coments">Comentários:</label>
 			  <textarea cols="30" rows="5" placeholder="Faça seu comentário!"></textarea>
 		  </div>
 
+		  <div className = "anonimo">
+			  <label for = "anonimo">Responder de forma anônima?</label>
+			  <input className = "anonimoInput" type = "checkbox" value="an" name = "annonimo"/>
+		  </div>
+
 		  <div className = "btQuest">
 			  <button className = "btEnviar">Enviar</button>
-			  <button className = "btCancelar">Cancelar</button>
+			  <button className = "btCancelar"><Link to="/ShowAvaliationUser" >Cancelar</Link></button>
 		  </div>
-		  <footer class="footerSi">Copyright©2021,MLGV. Todos os direitos reservados</footer>
+		  
 		</div>
+	
+       
 
-		 
+
 			);
-		
+			
+	
 			};
 						
 			 
