@@ -17,8 +17,14 @@ export function AddAvaliationform(){
 	const [avaliation, setAvaliation] = useState();
 	const history = useHistory();
 	 const params = useParams();
+	 var date = new Date().getDate();
+	 var month = new Date().getMonth() + 1;
+	 var year = new Date().getFullYear();
 	
 
+	 
+	 
+      
 
     
 	
@@ -42,14 +48,10 @@ export function AddAvaliationform(){
 
 	}catch(error){
 		const message = error.response.status
-		if(message == 400){
+		if(message === 400){
 		alert("Nome de avaliação existente");
 		}
 
-		if(message == 400){
-
-			alert("Data Inválida")
-		}
 	}
 	
 	}
@@ -80,7 +82,7 @@ export function AddAvaliationform(){
             <div className="inputs5">
 				<label>Data Inicial</label>
 				<br></br>
-			<input type="date" className="check" name = "started_at"
+			<input type="date" min = {date + '/' + month + '/' + year} className="check" name = "started_at"
 			    value={started_at}
 				onChange={e=>setStartedAt(e.target.value)}
 				required/>
@@ -89,7 +91,7 @@ export function AddAvaliationform(){
 
 
             <div className="inputs5">
-				<label >Data Final</label>
+				<label>Data Final</label>
 				<br></br>
 			<input type="date" className="check" name = "ended_at" 
 			    value={ended_at}

@@ -23,6 +23,14 @@ const QuestionFormUser = () => {
 		});
 		
 	  },[]);
+
+	  	
+	  async function PostQuest(e){
+        e.preventDefault();
+        await api.post(`/question/${params.exam_id}/${params.group_id}`,{		
+	});
+    }
+	
         
 		groups.map(group =>{
 			vectorGroup.push(group.id);
@@ -52,9 +60,11 @@ const QuestionFormUser = () => {
 		<div className='questionForm2'>
 		
 		{groups.map(group=>(
+			
 				<form  action = "post"className="form">
+				<div className="groupTable">
 				<p className="group">{group.title}</p>
-				
+				</div>
                 			   
 		{vectorQuestion.map( questions => (
 				<div className = "questionContainer">
@@ -86,9 +96,9 @@ const QuestionFormUser = () => {
 			  <textarea cols="30" rows="5" placeholder="Faça seu comentário!"></textarea>
 		  </div>
 
-		  <div className = "anonimo">
-			  <label for = "anonimo">Responder de forma anônima?</label>
-			  <input className = "anonimoInput" type = "checkbox" value="an" name = "annonimo"/>
+		  <div className = "anonimos">
+			  <label for = "anonimos">Responder de forma anônima?</label>
+			  <input className = "anonimoInput" type = "checkbox" value="an" name = "anonimos"/>
 		  </div>
 
 		  <div className = "btQuest">

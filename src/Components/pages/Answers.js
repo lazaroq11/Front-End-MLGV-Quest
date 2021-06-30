@@ -6,7 +6,7 @@ import { IconContext } from 'react-icons';
 import { MdDelete } from "react-icons/md";
 import { BiEditAlt } from "react-icons/bi";
 import {AiOutlinePlus} from "react-icons/ai";
-
+import {CSVLink} from "react-csv"
 import api from '../../services/api';
 import { AiOutlineCopy } from "react-icons/ai";
 
@@ -144,7 +144,7 @@ const Dropdown = styled.div`
        transition:all ease 0.4s;
  }
    
-  .btPlanilha{
+  .btPlanilha {
     text-decoration:none;
     width:10%;
     background-color:black;
@@ -164,6 +164,7 @@ const Dropdown = styled.div`
  
     }
 
+    
     .btPlanilha:hover{
       background-color: #171719;
         cursor:pointer;
@@ -192,6 +193,24 @@ const Dropdown = styled.div`
        transition:all ease 0.4s;
  }
 `;
+
+
+const data = [
+  {lastname:"Warren"},
+]
+
+const headers = [
+  {label: 'Last Name',key:'lastname'}
+
+]
+
+const csvReport = {
+  filename: 'Answers.xslx',
+  headers:headers,
+  data:data
+};
+
+
 
 const Answers = () => {
 
@@ -247,7 +266,7 @@ const Answers = () => {
                     <p>Anonimo: {avaliation.allow_anonymous}</p>
                     
                     
-          <button className="btPlanilha">Exportar Planilha</button>
+          <button className="btPlanilha"><CSVLink {...csvReport}>Exportar Planilha</CSVLink></button>
                   </Dropdown>
                 ) : null}
               </>

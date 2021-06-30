@@ -16,15 +16,19 @@ export default function Login(){
     const[password,setPassword] = useState();
     const{ signIn } = useAuth();
 
-    useEffect(() => {
-        localStorage.removeItem("@PermissionYT:token");
-      }, []);
+  
    
   
     const handleSubmit = useCallback(async(e)=>{
         e.preventDefault();
+        try{
         await signIn({email,password});
-        
+        }catch(error){
+            const message = error.response.status
+            if(message===400){
+                alert("Usuário ou senha incorretos!");
+            }
+        }
        
     },[email,password]);
 
