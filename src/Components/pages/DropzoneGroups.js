@@ -61,12 +61,13 @@ export const GroupsContainer = styled.div `
         
     }
        .atrelado{
-         font-size:17px;
+         font-size:10px;
+         font-weight: bolder;
+         margin-top:20%;
+         margin-left:1%;
+         float:left;
          position:relative;
-         top:10%;
-         margin-left:29%;
-         
-         color:gray;
+         color:darkblue;
        }
     
       
@@ -148,7 +149,7 @@ const DropzoneGroups = () => {
  
           <Link to={`/EditGroupForm/${params.id}/${group.id}`} title="Editar" className="btEdit"><BiEditAlt/></Link>
           <Link to="/ShowAvaliation"  className="btDelete" title="Deletar" onClick={()=>handleRemoveGroup(group.id)}><MdDelete/></Link>   
-          <p className = "atrelado">{group.classs===1?'+':''}</p>   
+          <p className = "atrelado">{group.classs===1?'Atrelado':''}</p>   
         </div>
         
         );

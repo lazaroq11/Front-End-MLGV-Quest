@@ -48,7 +48,7 @@ const ShowAvaliationUser = () => {
       <div className="btAvaliation">
       <Link to="/HomeUser" className="btPlus">Voltar</Link> 
       </div>
-        <div className="formDiv2">    
+        <div className="formDiv10">    
 		<h1>Avaliações</h1>
     </div>
     

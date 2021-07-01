@@ -10,7 +10,7 @@ import { Link, useHistory, useParams } from 'react-router-dom'
 const type = {type:String}
 const PrivateRoutes = ({type, ...rest}) =>{
     const [permissions, setPermissions] = useState([]);
-     const history = useHistory();
+    
     
     
     const{ userLogged } = useAuth();

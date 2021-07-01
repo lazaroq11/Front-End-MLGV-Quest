@@ -60,11 +60,13 @@ export const QuestionsContainer = styled.div `
         }
 
         .required{
-        font-size:20px;
+          font-size:10px;
+         font-weight: bolder;
+         margin-left:1%;
+         margin-top:8%;
+         float:left;
          position:relative;
-         bottom:18%;
-         left:9%;
-         color:gray;
+         color:darkblue;
        }
     }
     `;
@@ -119,10 +121,10 @@ const DropzoneQuestions = () => {
     
         <div className="box-info" key={question.id} data-grid={{x: 0, y: 0, w: 1, h: 1}}> 
         <p>{question.statement}</p>
-        <p className = "required">{question.required === true?'*':''}</p> 
+         
         <Link to={`/EditQuestionForm/${params.exam_id}/${params.id}/${question.id}`} title="Editar" className="btEdit"><BiEditAlt/></Link>
         <Link to="/ShowAvaliation" title="Deletar" className="btDelete" onClick={()=>handleRemoveQuestion(question.id)}><MdDelete/></Link> 
-      
+        <p className = "required">{question.required === true?'Obrigatória':''}</p>
         </div>
         ))}
     </ResponsiveGridLayout>

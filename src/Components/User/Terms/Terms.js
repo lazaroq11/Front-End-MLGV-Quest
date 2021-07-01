@@ -15,7 +15,7 @@ export const Terms = () =>{
     return (
         
   <div className = "termos">
-          <div className = "formDiv2">
+          <div className = "formDiv10">
        <h1>Termos e Condições</h1>
        </div>
        <div className = "box">
