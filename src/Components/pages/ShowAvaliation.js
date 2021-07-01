@@ -7,7 +7,7 @@ import { MdDelete } from "react-icons/md";
 import { BiEditAlt } from "react-icons/bi";
 import {AiOutlinePlus} from "react-icons/ai";
 import {dateFormat} from 'dateformat';
-
+import {CSVLink} from "react-csv"
 
 import api from '../../services/api';
 import { AiOutlineCopy } from "react-icons/ai";
@@ -155,7 +155,7 @@ const Dropdown = styled.div`
     color:white;
     border-radius:8px;
     font-size:15px;
-    margin-bottom: 40%;
+    margin-bottom: 9%;
     border:none;
     outline:none;
     cursor:pointer;
@@ -167,6 +167,37 @@ const Dropdown = styled.div`
     }
 
     .btGroup:hover{
+      background-color: #171719;
+        cursor:pointer;
+        border:none;
+        outline-width: 0;
+        transform: scale(1)
+
+    }
+    .btPlanilha {
+    text-decoration:none;
+    width:12%;
+    background-color:black;
+    font-weight: 600;
+    height: 100px;
+    color:white;
+    border-radius:8px;
+    font-size:15px;
+    margin-left:5%;
+    margin-top:-11.5%;
+    margin-bottom:10px;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    justify-content: center;
+    transform: scale(0.9);
+    transition: all ease 0.4s;
+    
+ 
+    }
+
+    
+    .btPlanilha:hover{
       background-color: #171719;
         cursor:pointer;
         border:none;
@@ -195,6 +226,20 @@ const Dropdown = styled.div`
  }
 `;
 
+const data = [
+  {lastname:"Warren"},
+]
+
+const headers = [
+  {label: 'Last Name',key:'lastname'}
+
+]
+
+const csvReport = {
+  filename: 'Answers.csv',
+  headers:headers,
+  data:data
+};
 const ShowAvaliation = () => {
 
   const [avaliations, setAvaliations] = useState([]);
@@ -243,7 +288,8 @@ const ShowAvaliation = () => {
     
     <IconContext.Provider value={{ color: '#00FFB9', size: '15px' }}>
     <div className="btAvaliation">
-      <Link to="/avaliation" className="btPlus">Cadastrar Avaliação<AiOutlinePlus/></Link> 
+      <Link to="/avaliation" className="btPlus2">Cadastrar Avaliação<AiOutlinePlus/></Link> 
+      <Link to="/Home" className="btPlus">Voltar</Link> 
       </div>
         <div className="formDiv">    
 		<h1>Avaliações Cadastradas</h1>
@@ -272,6 +318,7 @@ const ShowAvaliation = () => {
                     
                     
           <Link to={`/DropzoneGroups/${avaliation.id}`} className="btGroup">Grupos</Link>
+          <button className="btPlanilha"><CSVLink {...csvReport}>Exportar Planilha</CSVLink></button>
                   </Dropdown>
                 ) : null}
               </>

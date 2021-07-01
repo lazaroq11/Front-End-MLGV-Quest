@@ -26,11 +26,7 @@ function Cards() {
               text='Cadastrar Perguntas'
               path='/questions'/>
 
-            <CardItem
-              src='images/img-answers.jpg'
-              alt = "answers"
-              text='Respostas'
-              path='/Answers'/>
+        
               
               <CardItem 
               src='images/img-copy.jpg'

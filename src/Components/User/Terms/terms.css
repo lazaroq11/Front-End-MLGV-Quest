@@ -108,4 +108,22 @@
     outline-width: 0;
 }
 
+.anonimos{
+    margin-top:-1%;
+    margin-left:8%;
+    margin-right:44%;
+    float:right;
+  }
+  
+  .anonimos label{
+   margin-left:10px;
+    font-weight:500;
+    font-style:italic;
+  
+  }
+  
+  .anonimos input{
+    margin-left:10px;
     
+  }
+  

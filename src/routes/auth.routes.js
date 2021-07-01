@@ -8,7 +8,6 @@ import QuestionFluxo from '../Components/pages/QuestionFluxo';
 import Group from '../Components/pages/Group';
 import GroupFluxo from '../Components/pages/GroupFluxo';
 import Avaliation from '../Components/pages/Avaliation';
-import Answers from '../Components/pages/Answers';
 import ShowAvaliation from '../Components/pages/ShowAvaliation';
 import AvaliationData from '../Components/pages/AvaliationData/AvaliationData'
 
@@ -57,7 +56,6 @@ export default function AuthRoutes(){
           <PrivateRoutes path='/groupfluxo/:id' component={GroupFluxo} />
           <PrivateRoutes path='/questionfluxo/:exam_id/:group_id' component={QuestionFluxo} />
           <PrivateRoutes path='/questions' component={Questions} />
-          <PrivateRoutes path='/answers' component={Answers} />
           <PrivateRoutes path='/AvaliacoesCadastradas' component={AvaliacoesCadastradas} />
           <PrivateRoutes path='/Showavaliation' component={ShowAvaliation} />
           <PrivateRoutes path = '/AvaliationData' component = {AvaliationData}/>

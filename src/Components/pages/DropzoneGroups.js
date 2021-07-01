@@ -70,7 +70,34 @@ export const GroupsContainer = styled.div `
          color:darkblue;
        }
     
+.btAvaliationGroup{
       
+  text-align: right;
+  font-style: italic;
+  margin-right:8px;
+}
+
+
+
+.btAvaliationGroup .btPlus2{
+  background-color:black;
+  font-weight: 800;
+  height: 30px;
+  color:white;
+  border-radius:5px;
+  font-size:18px;
+  border:none;
+  outline:none;
+  
+}
+
+.btPlus2:hover{
+  background-color: #171719;
+  cursor:pointer;
+  border:none;
+  outline-width: 0;
+}
+
     `;
     
 
@@ -124,8 +151,10 @@ const DropzoneGroups = () => {
     return (
        
       <>
+      
       <div className="btAvaliation">
-      <Link to="/group" className="btPlus">Cadastrar Grupo<AiOutlinePlus/></Link> 
+      <Link to="/group" className="btPlus2">Cadastrar Grupo<AiOutlinePlus/></Link> 
+      <Link to="/ShowAvaliation" className="btPlus">Voltar</Link>
       </div>
       <div className="formDiv">
         

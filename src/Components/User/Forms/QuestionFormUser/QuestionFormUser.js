@@ -15,8 +15,9 @@ const QuestionFormUser = () => {
 	const [option,setOption] = useState(0);
 	const params = useParams();
      let vectorGroup = [];
-	let [vectorQuestion] = useState([""]);
+	let vectorQuestion = [];
 	const [comment,showComment] =useState();
+    const [a,setA]  = useState([]);
 
 	useEffect(()=>{
 		api.get(`/questiongroup/${params.id}`).then(response=>{
@@ -34,35 +35,42 @@ const QuestionFormUser = () => {
 	
         
 		groups.map(group =>{
-			vectorGroup.push(group.id);
+		  vectorGroup.push(group.id);
 	  })
 	  
-
-	  vectorGroup.map(vectorGroups =>{
-		api.get(`/question/${params.id}/${vectorGroups}`).then(response=>{
-			vectorQuestion.push(response.data);	
-			console.log(question)
-		  });
-         
-		})  
+        
+	 vectorGroup.map(vectorGroups =>{
+		  api.get(`/question/${params.id}/${vectorGroups}`).then(response=>{
+			const data = response.data
+			data.map(datas=>{
+			const question = {id:datas.id, statement:datas.statement}
+			vectorQuestion.push(question);
 		
-         
+			
+        })
+			
+	});
+             
+	
+}) 
+	
+
   	   
   
 	return (
+		
 	 	<div className = "containerForm">
 		<div className='questionForm2'>
 		
+		
 		{groups.map(group=>(
-			
-				<form  action = "post"className="form">
 				<div className="groupTable">
 				<p className="group">{group.title}</p>
-				</div>
-                			   
-		{question.map( questions => (
+
+				{a.map(questions=>(
+			<form  action = "post"className="form">
 				<div className = "questionContainer">
-				<p className="question">{questions.statement}</p>
+				<p className="question">{questions[0]}</p>
 				<label for = "radio-1">1</label>	
 			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name="option" />
 			  
@@ -78,22 +86,25 @@ const QuestionFormUser = () => {
 			   <label for = "radio-5">5</label>	
 			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio" name="option"/>  
 			   </div>
-			  
-		))}
+			   </form>
+			  ))}
+	
+				</div>
+					))}	
+
+                			   
+		
 			   
 		
-				</form>
-				))}		
+				
+				
 		</div>
 		  <div className = "coments">
 			  <label for = "coments">Comentários:</label>
 			  <textarea cols="30" rows="5" placeholder="Faça seu comentário!"></textarea>
 		  </div>
           
-		  <div className = "anonimos">
-			  <label for = "anonimos">Responder de forma anônima?</label>
-			  <input className = "anonimoInput" type = "checkbox" value="an" name = "anonimos"/>
-		  </div>
+	
 		
 		  <div className = "btQuest">
 			  <button className = "btEnviar">Enviar</button>
@@ -103,7 +114,6 @@ const QuestionFormUser = () => {
 		</div>
 	
        
-
 
 			);
 			

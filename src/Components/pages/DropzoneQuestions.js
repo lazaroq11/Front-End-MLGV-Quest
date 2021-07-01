@@ -102,10 +102,11 @@ const DropzoneQuestions = () => {
     return (
       <>
        <div className="btAvaliation">
-      <Link to="/questions" className="btPlus">Cadastrar Perguntas<AiOutlinePlus/></Link> 
+      <Link to="/questions" className="btPlus2">Cadastrar Perguntas<AiOutlinePlus/></Link>
+      <Link to={`/DropzoneGroups/${params.exam_id}`} className="btPlus">Voltar</Link> 
       </div>
       <div className="formDiv">
-      <h1>Grupo de Perguntas</h1>
+      <h1>Perguntas</h1>
       </div>
       <QuestionsContainer> 
     <ResponsiveGridLayout

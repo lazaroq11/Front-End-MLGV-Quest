@@ -109,7 +109,10 @@ As limitações e proibições de responsabilização listadas nesta Seção e e
 
 Enquanto o site e as informações e serviços do site forem oferecidos gratuitamente, nós não seremos responsáveis por perdas e danos de qualquer natureza.</p>
 </div>
-
+<div className = "anonimos">
+			  <label for = "anonimos">Responder de forma anônima?</label>
+			  <input className = "anonimoInput" type = "checkbox" value="an" name = "anonimos"/>
+		  </div>
     
     <div className = "btsTerm">
       <button  className = "btConfirm"><Link to ={`/QuestionFormUser/${params.exam_id}`}>Responder</Link></button>
