@@ -17,9 +17,7 @@ export function AddAvaliationform(){
 	const [avaliation, setAvaliation] = useState();
 	const history = useHistory();
 	 const params = useParams();
-	 var date = new Date().getDate();
-	 var month = new Date().getMonth() + 1;
-	 var year = new Date().getFullYear();
+	
 	
 
 	 
@@ -82,7 +80,7 @@ export function AddAvaliationform(){
             <div className="inputs5">
 				<label>Data Inicial</label>
 				<br></br>
-			<input type="date" min = {date + '/' + month + '/' + year} className="check" name = "started_at"
+			<input type="date" max="2100-12-31" className="check" name = "started_at"
 			    value={started_at}
 				onChange={e=>setStartedAt(e.target.value)}
 				required/>
@@ -93,7 +91,7 @@ export function AddAvaliationform(){
             <div className="inputs5">
 				<label>Data Final</label>
 				<br></br>
-			<input type="date" className="check" name = "ended_at" 
+			<input type="date" max="2100-12-31" className="check" name = "ended_at" 
 			    value={ended_at}
 				onChange={e=>setEndedAt(e.target.value)}
 				required/>

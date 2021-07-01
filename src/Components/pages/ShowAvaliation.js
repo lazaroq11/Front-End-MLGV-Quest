@@ -6,6 +6,8 @@ import { IconContext } from 'react-icons';
 import { MdDelete } from "react-icons/md";
 import { BiEditAlt } from "react-icons/bi";
 import {AiOutlinePlus} from "react-icons/ai";
+import {dateFormat} from 'dateformat';
+
 
 import api from '../../services/api';
 import { AiOutlineCopy } from "react-icons/ai";
@@ -200,11 +202,16 @@ const ShowAvaliation = () => {
   useEffect(()=>{
     api.get('/exam').then(response=>{
       setAvaliations(response.data);
-      
+
+
     });
+      
+    
+    
+    
   },[]);
 
-
+  
   async function handleShowAvaliation(id) {
     const idResponse = await api.post(`/posts/${id}`);
     if (idResponse.status === 204){
@@ -245,6 +252,7 @@ const ShowAvaliation = () => {
     <AccordionSection>
       <Container>
       {avaliations.map(avaliation =>{
+      
             return (
               <>
                 <Wrap onClick={() => toggle(avaliation.title)} key={avaliation.title}>
@@ -259,7 +267,7 @@ const ShowAvaliation = () => {
                     <p>Nome: {avaliation.title}</p>
                     <p>Descrição: {avaliation.description}</p>
                     <p>Data de Inicio: {avaliation.started_at}</p>
-                    <p>Data Final: {avaliation.ended_at}</p>
+                    <p>Data Final: {avaliation.ended_at }</p>
                     <p>Anonimo: {avaliation.allow_anonymous===1?'Sim':'Não'}</p>
                     
                     

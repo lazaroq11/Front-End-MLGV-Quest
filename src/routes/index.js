@@ -8,9 +8,9 @@ const Routes = () => {
        
     return(
       <>
-       <BrowserRouter>
+       
       <AuthRoutes/>
-      </BrowserRouter>
+      
       </>
     ) 
 

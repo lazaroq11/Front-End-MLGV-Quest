@@ -45,6 +45,9 @@ const ShowAvaliationUser = () => {
   return (
     
     <IconContext.Provider value={{ color: '#00FFB9', size: '15px' }}>
+      <div className="btAvaliation">
+      <Link to="/HomeUser" className="btPlus">Voltar</Link> 
+      </div>
         <div className="formDiv2">    
 		<h1>Avaliações</h1>
     </div>

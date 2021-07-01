@@ -14,7 +14,7 @@
     display:flex;
     text-align:center;
     overflow:scroll;
-    width:60%;
+    width:50%;
     height:500px;
     font-style: italic;
     border-radius: 10px;
@@ -22,7 +22,7 @@
     color:black;
     border-collapse: collapse;
     border-color:black;
-    margin-left:20%;
+    margin-left:25%;
     
         
 }

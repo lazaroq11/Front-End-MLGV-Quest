@@ -1,6 +1,5 @@
 import React from 'react'
-import { createBrowserHistory } from 'history';
-import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route, useHistory } from 'react-router-dom';
 import Login from '../Components/Login';
 
 import Home from '../Components/pages/Home';
@@ -36,20 +35,22 @@ import QuestionFormUser from '../Components/User/Forms/QuestionFormUser/Question
 import Modal from '../Components/User/Forms/Modal/Modal'
 import Terms from '../Components/User/Terms/Terms';
 
-const history = createBrowserHistory();
+
 
 export default function AuthRoutes(){
 
+    const history = useHistory();
+
     return (
  
-        <Router>
+        <Router history = {history}>
         <Switch>
             
         <Route path='/' exact component={Login}/> 
         {
             <>
          <Header/>
-
+           
           <PrivateRoutes exact path='/Home'  component={Home} type="manager"/>
           <PrivateRoutes path='/avaliation'  component={Avaliation} />
           <PrivateRoutes path='/group' component={Group} />

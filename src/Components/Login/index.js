@@ -26,7 +26,7 @@ export default function Login(){
         }catch(error){
             const message = error.response.status
             if(message===400){
-                alert("Usuário ou senha incorretos!");
+                alert("Usuário ou senha incorretos!")
             }
         }
        

@@ -10,13 +10,6 @@ const Modal = props=>{
     const [avaliation, setAvaliation] = useState();
     
 
-    useEffect(()=>{
-        api.get(`/exam`).then(response=>{
-        setAvaliation(response.data);
-          });
-
-    },[]);
-
     if(!props.show){
         return null
     }
@@ -26,11 +19,10 @@ const Modal = props=>{
             <div className = "modal-content">
               
                 <div className = "modal-body">
-                    Confirma Participação no Questionário?
+                    Obrigado pela participação!
                 </div>
                 <div className = "modal-footer">
-                  <Link to ={`/QuestionFormUser/${avaliation.id}`} className="btGroup" >Sim</Link>     
-                    <button onClick = {props.onClose} className = "btGroup"> Não</button>
+                    <button onClick = {props.onClose} className = "btGroup">Não</button>
                 </div>
             </div>
         </div>

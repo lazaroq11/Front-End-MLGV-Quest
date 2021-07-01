@@ -15,7 +15,7 @@ const QuestionFormUser = () => {
 	const [option,setOption] = useState(0);
 	const params = useParams();
      let vectorGroup = [];
-	let vectorQuestion = [];
+	let [vectorQuestion] = useState([""]);
 	const [comment,showComment] =useState();
 
 	useEffect(()=>{
@@ -37,24 +37,17 @@ const QuestionFormUser = () => {
 			vectorGroup.push(group.id);
 	  })
 	  
-	  
-	
 
 	  vectorGroup.map(vectorGroups =>{
-		
 		api.get(`/question/${params.id}/${vectorGroups}`).then(response=>{
-			vectorQuestion.push(response.data);
-		  
+			vectorQuestion.push(response.data);	
+			console.log(question)
 		  });
-		  console.log(vectorQuestion);
-		   		  
-  })  
-        
-  	
-  
-
+         
+		})  
 		
-	
+         
+  	   
   
 	return (
 	 	<div className = "containerForm">
@@ -67,9 +60,9 @@ const QuestionFormUser = () => {
 				<p className="group">{group.title}</p>
 				</div>
                 			   
-		{vectorQuestion.map( questions => (
+		{question.map( questions => (
 				<div className = "questionContainer">
-				<p className="question">{questions}</p>
+				<p className="question">{questions.statement}</p>
 				<label for = "radio-1">1</label>	
 			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name="option" />
 			  
