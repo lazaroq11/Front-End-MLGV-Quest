@@ -6,7 +6,7 @@ import Container from './Container';
 import AccordionSection from './AccordionSection';
 import Wrap from './Wrap';
 import Dropdown from './Dropdown';
-import Modal from '../Modal/Modal'
+
 
 
 const ShowAvaliationUser = () => {
@@ -45,8 +45,8 @@ const ShowAvaliationUser = () => {
   return (
     
     <IconContext.Provider value={{ color: '#00FFB9', size: '15px' }}>
-        <div className="formDiv">    
-		<h1>Avaliações Disponíveis</h1>
+        <div className="formDiv2">    
+		<h1>Avaliações</h1>
     </div>
     
     <AccordionSection>
@@ -64,7 +64,7 @@ const ShowAvaliationUser = () => {
                     <p>Descrição: {avaliation.description}</p>
                     <p>Data de Inicio: {avaliation.started_at}</p>
                     <p>Data Final: {avaliation.ended_at}</p>
-                    <Link to={`/QuestionFormUser/${avaliation.id}`} className="btGroup">Responder</Link>
+                    <Link to={`/Terms/${avaliation.id}`} className="btGroup">Responder</Link>
                    </Dropdown>
                    
                 ) : null}

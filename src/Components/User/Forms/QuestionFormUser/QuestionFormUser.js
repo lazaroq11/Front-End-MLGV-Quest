@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Link, useParams} from 'react-router-dom';
 import api from '../../../../services/api';
+import AnonimoComponent from '../../../Permission';
 import "../QuestionFormUser/questionform.css"
 
 
@@ -23,7 +24,7 @@ const QuestionFormUser = () => {
 		});
 		
 	  },[]);
-
+      
 	  	
 	  async function PostQuest(e){
         e.preventDefault();
@@ -95,12 +96,12 @@ const QuestionFormUser = () => {
 			  <label for = "coments">Comentários:</label>
 			  <textarea cols="30" rows="5" placeholder="Faça seu comentário!"></textarea>
 		  </div>
-
+          
 		  <div className = "anonimos">
 			  <label for = "anonimos">Responder de forma anônima?</label>
 			  <input className = "anonimoInput" type = "checkbox" value="an" name = "anonimos"/>
 		  </div>
-
+		
 		  <div className = "btQuest">
 			  <button className = "btEnviar">Enviar</button>
 			  <button className = "btCancelar"><Link to="/ShowAvaliationUser" >Cancelar</Link></button>

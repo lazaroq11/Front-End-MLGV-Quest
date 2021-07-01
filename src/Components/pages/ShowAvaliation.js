@@ -260,7 +260,7 @@ const ShowAvaliation = () => {
                     <p>Descrição: {avaliation.description}</p>
                     <p>Data de Inicio: {avaliation.started_at}</p>
                     <p>Data Final: {avaliation.ended_at}</p>
-                    <p>Anonimo: {avaliation.allow_anonymous}</p>
+                    <p>Anonimo: {avaliation.allow_anonymous===1?'Sim':'Não'}</p>
                     
                     
           <Link to={`/DropzoneGroups/${avaliation.id}`} className="btGroup">Grupos</Link>

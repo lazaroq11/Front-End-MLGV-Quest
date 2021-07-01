@@ -34,6 +34,7 @@ import HomeUser from '../Components/User/HomeUser/HomeUser';
 import ShowAvaliationUser from '../Components/User/Forms/ShowAvaliationUser/ShowAvaliationUser';
 import QuestionFormUser from '../Components/User/Forms/QuestionFormUser/QuestionFormUser';
 import Modal from '../Components/User/Forms/Modal/Modal'
+import Terms from '../Components/User/Terms/Terms';
 
 const history = createBrowserHistory();
 
@@ -72,7 +73,7 @@ export default function AuthRoutes(){
           <PrivateRoutes path = '/ShowAvaliationUser' component = {ShowAvaliationUser}/>
           <PrivateRoutes path = '/Modal' component={Modal}/>
           <PrivateRoutes path = '/QuestionFormUser/:id' component = {QuestionFormUser}/>
-          
+          <PrivateRoutes path = '/Terms/:exam_id' component = {Terms}/>
           </>
           }
 </Switch>

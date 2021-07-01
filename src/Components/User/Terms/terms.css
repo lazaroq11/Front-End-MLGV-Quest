@@ -1,0 +1,111 @@
+.box{
+    position: absolute;
+    top:20%;
+}
+
+.termos h1{
+    font-size:30px;
+  
+}
+
+.termos .termsText{
+   text-decoration: none;
+   color:inherit;
+    display:flex;
+    text-align:center;
+    overflow:scroll;
+    width:60%;
+    height:500px;
+    font-style: italic;
+    border-radius: 10px;
+    border-style: solid;
+    color:black;
+    border-collapse: collapse;
+    border-color:black;
+    margin-left:20%;
+    
+        
+}
+
+.terms a{
+    text-decoration: none;
+    color:inherit;
+}
+
+.box-text {
+    align-items: center;
+    justify-content: center;
+}
+
+.checkConfirm{
+    margin-bottom:30px;
+    margin-left:38%;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkConfirm .checkTerm{
+    margin-left:10px;
+}
+
+.btsTerm{
+    
+    margin-left:42%;
+    margin-top:-1.5%;
+    align-items: center;
+    justify-content: center;
+}
+
+.formDiv2{
+    align-items: center;
+  position:relative;
+  bottom:50px;
+}
+
+.btsTerm .btConfirm{
+        width:10%;
+        background-color:black;
+        font-weight: 800;
+        height: 30px;
+        color:white;
+        border-radius:8px;
+        font-size:12px;
+        margin-top:10px;
+        margin-left:10px;
+        border:none;
+        outline:none;
+        margin-right:10px;
+          
+        }
+
+.btConfirm:hover{
+    background-color: #171719;
+    cursor:pointer;
+    border:none;
+    outline-width: 0;
+}
+
+.btsTerm .btCancel{
+    width:10%;
+    background-color:black;
+    font-weight: 800;
+    height: 30px;
+    color:white;
+    border-radius:8px;
+    font-size:12px;
+    margin-top:10px;
+    margin-left:10px;
+    border:none;
+    outline:none;
+    margin-right:10px;
+        
+    }
+
+ .btCancel:hover{
+    background-color: #171719;
+    cursor:pointer;
+    border:none;
+    outline-width: 0;
+}
+
+    
