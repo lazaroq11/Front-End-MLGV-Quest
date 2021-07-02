@@ -2,6 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,700;1,100;1,500;1,700&display=swap');
 
 
+.groupTable p{
+  font-size:20px;
+  font-weight: bolder;
+  font-style: italic;
+  margin-bottom:4px;
+}
 
 .questionForm2{
  
@@ -29,7 +35,8 @@ margin-left:30px;
 }
 
 .questionForm2 .question{
-  font-size:15px;
+  margin-top:10px;
+  font-size:14px;
   color:black;
   font-style: italic;
   font-family:  sans-serif;
@@ -60,7 +67,14 @@ margin-left:30px;
 
 .coments label{
   margin-top:30px;
-  margin-left:20px;
+  margin-left:10px;
+  font-style: italic;
+  
+}
+
+ .answer{
+  margin-top:30px;
+  margin-left:10px;
   font-style: italic;
   
 }

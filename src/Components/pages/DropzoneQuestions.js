@@ -98,7 +98,6 @@ const DropzoneQuestions = () => {
   }
     // layout is an array of objects, see the demo for more complete usage
     const ResponsiveGridLayout = WidthProvider(Responsive);
-    
     return (
       <>
        <div className="btAvaliation">

@@ -15,7 +15,7 @@ const QuestionFormUser = () => {
 	const [option,setOption] = useState(0);
 	const params = useParams();
      let vectorGroup = [];
-	let vectorQuestion = [];
+	const [vectorQuestion, setVectorQuestion] = useState([]);
 	const [comment,showComment] =useState();
     const [a,setA]  = useState([]);
 
@@ -34,60 +34,46 @@ const QuestionFormUser = () => {
     }
 	
         
-		groups.map(group =>{
-		  vectorGroup.push(group.id);
-	  })
-	  
-        
-	 vectorGroup.map(vectorGroups =>{
-		  api.get(`/question/${params.id}/${vectorGroups}`).then(response=>{
-			const data = response.data
-			data.map(datas=>{
-			const question = {id:datas.id, statement:datas.statement}
-			vectorQuestion.push(question);
-		
-			
-        })
-			
-	});
-             
-	
-}) 
-	
 
+	  
+	 
+ 
+	 
+	
+	 
   	   
   
 	return (
 		
 	 	<div className = "containerForm">
 		<div className='questionForm2'>
-		
-		
 		{groups.map(group=>(
 				<div className="groupTable">
-				<p className="group">{group.title}</p>
-
-				{a.map(questions=>(
-			<form  action = "post"className="form">
+				<p>{group.title}</p>
+			    <form  action = "post"className="form">
 				<div className = "questionContainer">
-				<p className="question">{questions[0]}</p>
-				<label for = "radio-1">1</label>	
-			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name="option" />
+				<p className="question">{group.title}</p>
+				<fieldset id = {group.title}>	
+				<label for = "answer">Resposta:</label>
+				<label for = "radio-1">1</label>
+				
+			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name={group.title} />
 			  
 			   <label for = "radio-2">2</label>	
-			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name="option"/>	
+			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name={group.title}/>	
 			   
 			   <label for = "radio-3">3</label>	
-			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio" name="option"/>
+			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"name={group.title}/>
 			   
 			   <label for = "radio-4">4</label>	
-			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name="option"/>
+			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name={group.title}/>
 			   
 			   <label for = "radio-5">5</label>	
-			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio" name="option"/>  
+			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio" name={group.title}/>  
+			   </fieldset>
 			   </div>
 			   </form>
-			  ))}
+		
 	
 				</div>
 					))}	
