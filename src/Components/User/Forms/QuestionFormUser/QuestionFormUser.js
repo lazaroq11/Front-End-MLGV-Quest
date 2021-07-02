@@ -49,11 +49,14 @@ const QuestionFormUser = () => {
 		<div className='questionForm2'>
 		{groups.map(group=>(
 				<div className="groupTable">
+					<div className="cellGrid">
 				<p>{group.title}</p>
 			    <form  action = "post"className="form">
 				<div className = "questionContainer">
+			
 				<p className="question">{group.title}</p>
-				<fieldset id = {group.title}>	
+				<fieldset id = {group.title}>
+					
 				<label for = "answer">Resposta:</label>
 				<label for = "radio-1">1</label>
 				
@@ -70,11 +73,13 @@ const QuestionFormUser = () => {
 			   
 			   <label for = "radio-5">5</label>	
 			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio" name={group.title}/>  
+			  
 			   </fieldset>
 			   </div>
+			   
 			   </form>
 		
-	
+			   </div>
 				</div>
 					))}	
 
@@ -87,14 +92,14 @@ const QuestionFormUser = () => {
 		</div>
 		  <div className = "coments">
 			  <label for = "coments">Comentários:</label>
-			  <textarea cols="30" rows="5" placeholder="Faça seu comentário!"></textarea>
+			  <textarea cols="30" rows="5" ></textarea>
 		  </div>
           
 	
 		
 		  <div className = "btQuest">
 			  <button className = "btEnviar">Enviar</button>
-			  <button className = "btCancelar"><Link to="/ShowAvaliationUser" >Cancelar</Link></button>
+			  <button className = "btCancelar"><Link to="/ShowAvaliationUser">Cancelar</Link></button>
 		  </div>
 		  
 		</div>

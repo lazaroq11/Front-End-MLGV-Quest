@@ -13,18 +13,26 @@
  
  margin-top:20px;
  margin-left:30px;
- border-width: 1%;
- border-bottom: 1px solid #c9c9c9;
- border-top: 1px solid #c9c9c9;
+
  margin-top:30px;
 margin-left:30px;
  
 }
 
+.cellGrid{
+  border-radius: 1px;
+  border-color:white;
+  border-top: 1px;
+  border-bottom: 1px;
+  border-left:0px;
+  border-style: solid;
+  border-right: 0px;
+}
+
 .questionForm2 label{
     padding: 9px;
     font-size:15px;
-    margin-bottom:1px;
+    margin-top:-10px;
     font-style: italic;
 }
 
@@ -67,7 +75,7 @@ margin-left:30px;
 
 .coments label{
   margin-top:30px;
-  margin-left:10px;
+  margin-left:1%;
   font-style: italic;
   
 }
@@ -94,16 +102,16 @@ margin-left:30px;
 
 
 .btQuest{
-  margin-top:20px;
+  margin-top:0px;
   margin-left:10px;
-  margin-bottom:30px;
+  margin-bottom:10px;
   
  
 
 }
 
 .btEnviar{
-  width:4%;
+  width:8%;
   background-color:black;
   font-weight: 800;
   height: 30px;
@@ -126,7 +134,7 @@ margin-left:30px;
   }
 
   .btCancelar{
-    width:4%;
+    width:8%;
     background-color:black;
     font-weight: 800;
     height: 30px;
@@ -153,4 +161,10 @@ margin-left:30px;
     }
 
       
-   
+   .questionContainer p{
+     margin-left:10px;
+   }
+
+   .questionContainer label{
+     margin-left:1px;
+   }
