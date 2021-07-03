@@ -6,13 +6,10 @@ import "../QuestionFormUser/questionform.css"
 
 
 const QuestionFormUser = () => {
-	
-  const[currentGroup, setCurrentGroup] = useState();
-	const [currentQuestion, setCurrentQuestion] = useState(0);
-	const [showScore, setShowScore] = useState(false);
-	const [groups, setGroups] = useState([]);
+
+	const [groupsAnswer, setGroupsAnswer] = useState([]);
 	let [question, setQuestions] = useState([]);
-	const [option,setOption] = useState(0);
+	const [option,setOption] = useState();
 	const params = useParams();
      let vectorGroup = [];
 	const [vectorQuestion, setVectorQuestion] = useState([]);
@@ -20,75 +17,72 @@ const QuestionFormUser = () => {
     const [a,setA]  = useState([]);
 
 	useEffect(()=>{
-		api.get(`/questiongroup/${params.id}`).then(response=>{
-		  setGroups(response.data);
+		api.get(`/questionanswer/${params.id}`).then(response=>{
+		  setGroupsAnswer(response.data);
+		  
 		});
 		
 	  },[]);
-      
-	  	
+
+		
 	  async function PostQuest(e){
         e.preventDefault();
         await api.post(`/question/${params.exam_id}/${params.group_id}`,{		
 	});
     }
 	
-        
+        function checkOption(event){
+			if(event.target.value && option){
+              event.target.value = false
+			}
+			else if(event.target.value && !option){
+				event.target.value = true;
+			}
+		}
 
 	  
-	 
- 
-	 
-	
-	 
-  	   
-  
+
 	return (
 		
 	 	<div className = "containerForm">
 		<div className='questionForm2'>
-		{groups.map(group=>(
+		{groupsAnswer.map(group=>(
 				<div className="groupTable">
 					<div className="cellGrid">
 				<p>{group.title}</p>
-			    <form  action = "post"className="form">
+			    <form className="form" required={question.required===true}>
+				{group.questions.map(questions=>(
 				<div className = "questionContainer">
-			
-				<p className="question">{group.title}</p>
-				<fieldset id = {group.title}>
-					
+				<p className="question">{questions.statement}</p>
+				<fieldset required={question.required===true} id = {questions.statement}>
+	
 				<label for = "answer">Resposta:</label>
 				<label for = "radio-1">1</label>
-				
-			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name={group.title} />
-			  
+			   <input onChange = {(event)=>setOption(event.currentTarget.checked)}  value={option} className="optionType" type="radio"  name={questions.statement} />
+			
 			   <label for = "radio-2">2</label>	
-			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name={group.title}/>	
+			   <input onChange = {(event)=>setOption(event.currentTarget.checked)}   value={option}  className="optionType" type="radio"  name={questions.statement} />	
 			   
 			   <label for = "radio-3">3</label>	
-			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"name={group.title}/>
+			   <input onChange = {(event)=>setOption(event.currentTarget.checked)}   value={option}  className="optionType" type="radio" name={questions.statement} />
 			   
 			   <label for = "radio-4">4</label>	
-			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio"  name={group.title}/>
+			   <input onChange = {(event)=>setOption(event.currentTarget.checked)}  value={option}  className="optionType" type="radio"  name={questions.statement} />
 			   
 			   <label for = "radio-5">5</label>	
-			   <input onChange = {(event)=>setOption(event.target.value)} className="optionType" type="radio" name={group.title}/>  
+			   <input onChange = {(event)=>setOption(event.currentTarget.checked)} 	value={option}  className="optionType" type="radio" name={questions.statement} />  
 			  
+			   <label for = "radio-5">N/A</label>	
+			   <input onChange = {(event)=>setOption(event.currentTarget.checked)} 	value={option}  className="optionType" type="radio" name={questions.statement} />  
 			   </fieldset>
+	      
 			   </div>
-			   
+			   ))}	
 			   </form>
 		
 			   </div>
 				</div>
-					))}	
-
-                			   
-		
-			   
-		
-				
-				
+					))}				
 		</div>
 		  <div className = "coments">
 			  <label for = "coments">Comentários:</label>

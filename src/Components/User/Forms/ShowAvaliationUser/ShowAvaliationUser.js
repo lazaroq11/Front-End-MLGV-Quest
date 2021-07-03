@@ -67,7 +67,7 @@ const ShowAvaliationUser = () => {
                     <p>Descrição: {avaliation.description}</p>
                     <p>Data de Inicio: {avaliation.started_at}</p>
                     <p>Data Final: {avaliation.ended_at}</p>
-                    <Link to={`/Terms/${avaliation.id}`} className="btGroup">Responder</Link>
+                    <Link to={`/Terms/${avaliation.id}/${avaliation.allow_anonymous}`} className="btGroup">Responder</Link>
                    </Dropdown>
                    
                 ) : null}

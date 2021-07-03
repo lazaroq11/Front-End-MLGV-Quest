@@ -227,11 +227,19 @@ const Dropdown = styled.div`
 `;
 
 const data = [
-  {lastname:"Warren"},
+  {groupquestion:"Sistemas"},
+  {class:"LP1"}
 ]
 
 const headers = [
-  {label: 'Last Name',key:'lastname'}
+  {label: 'Grupo de Questão',key:'groupquestion'},
+  {label: 'Disciplina',key:'class'},
+  {label: 'Questão',key:'question'},
+  {label: 'Usuário',key:'user'},
+  {label: 'Matrícula',key:'matricula'},
+  {label: 'Média',key:'media'},
+  {label: 'Comentário',key:'coments'},
+  {label: 'Código',key:'codigo'}
 
 ]
 
@@ -247,8 +255,6 @@ const ShowAvaliation = () => {
   useEffect(()=>{
     api.get('/exam').then(response=>{
       setAvaliations(response.data);
-
-
     });
       
     

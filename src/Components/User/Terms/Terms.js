@@ -1,26 +1,52 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useParams} from 'react-router-dom';
+import {Link, useParams, useHistory} from 'react-router-dom';
 import api from '../../../services/api';
 import '../Terms/terms.css'
 
-export const Terms = () =>{
-    const[group,setGroups] = useState();
+export function Terms(){
+    const[anoymous,setAnonymous] = useState(false);
     const params = useParams();
-	useEffect(()=>{
-		api.get(`/questiongroup/${params.id}`).then(response=>{
-		  setGroups(response.data);
-		});
-		
-	  },[]);
+    const history = useHistory();
+    const[avaliations2,setAvaliations2] = useState();
+   
+     const allow_anonymousTerms = params.allow_anonymous; 
+     console.log(allow_anonymousTerms);
+    
+    async function PostAnonymous(e){
+      e.preventDefault();
+     
+     
+      await api.post("/agreement",{
+       anoymous,
+       exam_id:params.exam_id
+      });
+      console.log(anoymous);
+      
+      
+      history.push(`/QuestionFormUser/${params.exam_id}`);
+    }    
+
+
+ 
+    
+   
+
+    
+    
+    
     return (
-        
-  <div className = "termos">
+     <div>
+      
+       
+      <form onSubmit={PostAnonymous}>
+      
+       <div className = "termos">      
           <div className = "formDiv10">
        <h1>Termos e Condições</h1>
        </div>
        <div className = "box">
         <div className="box-text">
-        <p className = "termsText">Termos e Condições de Uso
+        <p className = "termsText">
 Seja bem-vindo ao MLGV Quest!
 Estes termos e condições descrevem as regras de uso do site da empresa MLGV Quest, localizada no endereço https://mlgv-app-gestor-arx1d0wl3-lazaroq11.vercel.app/.
 
@@ -109,21 +135,38 @@ As limitações e proibições de responsabilização listadas nesta Seção e e
 
 Enquanto o site e as informações e serviços do site forem oferecidos gratuitamente, nós não seremos responsáveis por perdas e danos de qualquer natureza.</p>
 </div>
-<div className = "anonimos">
-			  <label for = "anonimos">Responder de forma anônima?</label>
-			  <input className = "anonimoInput" type = "checkbox" value="an" name = "anonimos"/>
-		  </div>
-    
+
+
+
+{allow_anonymousTerms == 1 &&
+       <div className = "anonimos">
+        <label for = "anonimos">Responder de forma anônima?</label>
+			  <input 
+        className = "anonimoInput" 
+        type = "checkbox"
+        name = "anonimos"
+        onChange={(event)=>setAnonymous(event.currentTarget.checked)}
+        value={anoymous}
+        checked={anoymous} 
+        /> 
+      </div>
+}
+     
     <div className = "btsTerm">
-      <button  className = "btConfirm"><Link to ={`/QuestionFormUser/${params.exam_id}`}>Responder</Link></button>
+      <button className = "btConfirm">Responder</button>
       <button className = "btCancel"><Link to ="/ShowAvaliationUser" >Cancelar</Link></button>
       </div>
+      
       </div>
+      
     </div>
+    
+ 
+    </form>
+	
+    </div>  
+    	
+       
+     )}
      
-        
-        
-        )
-}
-
 export default Terms;
