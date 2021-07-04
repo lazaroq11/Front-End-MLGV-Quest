@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {Link, useParams,useHistory} from 'react-router-dom';
 import api from '../../../../services/api';
 import "../QuestionFormUser/questionform.css"
+import vectorAnswer from './VectorAnswer'
 
 
 const QuestionFormUser = () => {
@@ -11,45 +12,55 @@ const QuestionFormUser = () => {
 	const history = useHistory();
 	let [score,setScore] = useState(); 
 	const [isClass, setIsClass] = useState();
-	const vectorAnswer = [];
-	const vector1 = []
+	const [comment,setComment] = useState();
+	const [answer,setAnswer] = useState([]);
+	
+	
 
 	
 
 	useEffect(()=>{
 		api.get(`/questionanswer/${params.id}`).then(response=>{
 		  setGroupsAnswer(response.data);
-		
 		});
 	
 	  },[]);
 
     
-	function LotGroupsAnswer(agreement_id, score,isClass,question_id){
+	
+	  function LotGroupsAnswer(agreement_id, score,isClass,question_id){
+        const findAnswer = vectorAnswer.find(answer=>answer.question_id === question_id)
+		if(findAnswer){
+			const index = vectorAnswer.findIndex(answer=>answer.question_id === question_id)
+		   vectorAnswer[index].score = score;
+		}else{
+			const answer = {agreement_id,score,isClass,question_id}
+			vectorAnswer.push(answer); 
+			setAnswer(vectorAnswer);
+			 console.log(vectorAnswer)
+		}	     
+	}
 
-        const answer = {agreement_id,score,isClass,question_id}
-		 vectorAnswer.push(answer); 
-		  
-	   }
-      
+
 	  
-          
+
+	
+
+	    
+      
 
 
-	   console.log(vectorAnswer)
-
+	  
 	 
 
 	  async function PostAnswer(e){
 		e.preventDefault();
-	   await api.post("/answer",{
-		agreement_id:params.agreement_id,   
-		score,
-        isClass,
-		question_id:groupsAnswer[0].questions[0].id
-		 
+	  const response = await api.post("/answer",{
+		answer:vectorAnswer,
+		comment
+		
 		});	 
-	    
+	    console.log(response.data);
 		
 	    history.push("/Acknowledgment");
 	}
@@ -68,7 +79,9 @@ const QuestionFormUser = () => {
 				<div className="cellGrid">
 				<p>{group.title}</p>
 				{group.questions.map(questions=>(
-			    <form className="form" onSubmit={LotGroupsAnswer}>
+					
+			    <form className="form" onSubmit={PostAnswer}>
+					 
 				<div className = "questionContainer">
 				<p className="question">{questions.statement}</p>
 				
@@ -90,7 +103,7 @@ const QuestionFormUser = () => {
 			   <input onChange = {(event)=>setScore(event.target.value)}  onClick = {() => LotGroupsAnswer(params.agreement_id, 5, group.classs,questions.id)} value={5} className="optionType" type="radio"  name={questions.statement} />  
 			  
 			   <label for = "radio-5">N/A</label>	
-			   <input onChange = {(event)=>setScore(event.currentTarget.value)}  onClick = {() => LotGroupsAnswer(params.agreement_id, 0, group.classs,questions.id)} value={0} className="optionType" type="radio"  name={questions.statement} />  
+			   <input onChange = {(event)=>setScore(event.target.value)}  onClick = {() => LotGroupsAnswer(params.agreement_id, 0, group.classs,questions.id)} value={0} className="optionType" type="radio"  name={questions.statement} />  
 			   </div>
 			   
 			   </form>
@@ -100,9 +113,9 @@ const QuestionFormUser = () => {
 				</div>
 					))}				
 		</div>
-		<div className = "coments">
+		<div onSubmit={PostAnswer} className = "coments">
 			  <label for = "coments">Comentários:</label>
-			  <textarea cols="30" rows="5" ></textarea>
+			  <textarea onChange={(event)=>setComment(event.target.value)} cols="30" rows="5" ></textarea>
 		  </div>		 	
 		 <div className = "btQuest">
 			  <button className = "btEnviar" onClick={PostAnswer}>Enviar</button>
