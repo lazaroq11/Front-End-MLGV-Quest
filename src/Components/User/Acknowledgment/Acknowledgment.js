@@ -3,7 +3,11 @@ import {Link} from 'react-router-dom';
 import '../Acknowledgment/Acknowledgment.css'
 
 
+
+
 const Acknowledgment = () => {
+
+
 
     return (
         <div className = "container-acknow">

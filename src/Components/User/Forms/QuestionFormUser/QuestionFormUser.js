@@ -37,22 +37,10 @@ const QuestionFormUser = () => {
 			const answer = {agreement_id,score,isClass,question_id}
 			vectorAnswer.push(answer); 
 			setAnswer(vectorAnswer);
-			 console.log(vectorAnswer)
+			 
 		}	     
 	}
-
-
-	  
-
-	
-
-	    
-      
-
-
-	  
-	 
-
+ 
 	  async function PostAnswer(e){
 		e.preventDefault();
 	  const response = await api.post("/answer",{
@@ -60,13 +48,16 @@ const QuestionFormUser = () => {
 		comment
 		
 		});	 
-	    console.log(response.data);
+	    
 		
 	    history.push("/Acknowledgment");
+		 const {length} = vectorAnswer
+		 for(let i = 0; i<length; i++){
+			 vectorAnswer.pop();
+		 }
+ 		
+		 console.table(response.data);
 	}
-
-	
-	  
 
 	return (
 		
