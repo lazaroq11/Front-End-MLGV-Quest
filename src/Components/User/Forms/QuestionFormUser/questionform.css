@@ -168,3 +168,12 @@ margin-left:30px;
    .questionContainer label{
      margin-left:1px;
    }
+
+   .questionContainer .questionRequired{
+    margin-left: auto;
+    margin-right: auto;
+    display:flex;
+    position: absolute;
+    margin-top:auto;
+     
+   }
