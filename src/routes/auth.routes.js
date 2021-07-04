@@ -33,6 +33,7 @@ import ShowAvaliationUser from '../Components/User/Forms/ShowAvaliationUser/Show
 import QuestionFormUser from '../Components/User/Forms/QuestionFormUser/QuestionFormUser';
 import Modal from '../Components/User/Forms/Modal/Modal'
 import Terms from '../Components/User/Terms/Terms';
+import Acknowledgment from '../Components/User/Acknowledgment/Acknowledgment';
 
 
 
@@ -71,8 +72,9 @@ export default function AuthRoutes(){
           <PrivateRoutes exact path='/HomeUser' component={HomeUser}/>  
           <PrivateRoutes path = '/ShowAvaliationUser' component = {ShowAvaliationUser}/>
           <PrivateRoutes path = '/Modal' component={Modal}/>
-          <PrivateRoutes path = '/QuestionFormUser/:id' component = {QuestionFormUser}/>
+          <PrivateRoutes path = '/QuestionFormUser/:id/:agreement_id' component = {QuestionFormUser}/>
           <PrivateRoutes path = '/Terms/:exam_id/:allow_anonymous' component = {Terms}/>
+          <PrivateRoutes path = '/Acknowledgment' component = {Acknowledgment}/> 
           </>
           }
 </Switch>

@@ -10,20 +10,20 @@ export function Terms(){
     const[avaliations2,setAvaliations2] = useState();
    
      const allow_anonymousTerms = params.allow_anonymous; 
-     console.log(allow_anonymousTerms);
+    
     
     async function PostAnonymous(e){
       e.preventDefault();
      
      
-      await api.post("/agreement",{
+ const response = await api.post("/agreement",{
        anoymous,
        exam_id:params.exam_id
       });
-      console.log(anoymous);
+
+     const agreement_id = response.data.id
       
-      
-      history.push(`/QuestionFormUser/${params.exam_id}`);
+      history.push(`/QuestionFormUser/${params.exam_id}/${agreement_id}`);
     }    
 
 

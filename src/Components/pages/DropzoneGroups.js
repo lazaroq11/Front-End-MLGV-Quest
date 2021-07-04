@@ -178,7 +178,7 @@ const DropzoneGroups = () => {
  
           <Link to={`/EditGroupForm/${params.id}/${group.id}`} title="Editar" className="btEdit"><BiEditAlt/></Link>
           <Link to="/ShowAvaliation"  className="btDelete" title="Deletar" onClick={()=>handleRemoveGroup(group.id)}><MdDelete/></Link>   
-          <p className = "atrelado">{group.classs===1?'Atrelado':''}</p>   
+          <p className = "atrelado">{group.classs===true?'Atrelado':''}</p>   
         </div>
         
         );

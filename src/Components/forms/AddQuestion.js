@@ -13,7 +13,7 @@ export function AddQuestion(){
 	const [selectedGroup, setSelectedGroup] = useState();
 	const [selectedAvaliation, setSelectedAvaliation] = useState();
 	const [image_url, setImage] = useState(null);
-	const [required, setRequired]= useState();
+	const [required, setRequired]= useState(false);
 	const [image_alt, setImageAlt] = useState();
     const history = useHistory(); 
     const params = useParams();

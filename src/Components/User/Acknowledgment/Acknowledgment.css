@@ -1,0 +1,35 @@
+.container-acknow h1{
+    margin-top:6%;
+    font-weight:600;
+    color:black;
+    margin-left:35%;
+    align-items:center;
+    text-align: center;
+    font-size:60px;
+    word-wrap: break-word;
+    width:400px;
+   
+}
+
+
+.btnAcknow{
+    margin-top:2%;
+    margin-left:45%;
+}  
+
+
+.btnAcknow a{
+    width:100%;
+    background-color:black;
+    font-weight: 600;
+    font-style: italic;
+    height: 60px;
+    color:white;
+    border-radius:8px;
+    font-size:22px;
+    margin-top:10px;
+    margin-left:-20px;
+    border:none;
+    outline:none;
+    
+}
