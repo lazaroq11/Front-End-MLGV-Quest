@@ -224,6 +224,11 @@ const Dropdown = styled.div`
        transform:scale(0.9);
        transition:all ease 0.4s;
  }
+
+a{
+  text-decoration:none;
+  color:white;
+}
 `;
 
 const data = [
@@ -292,7 +297,7 @@ const ShowAvaliation = () => {
 
   return (
     
-    <IconContext.Provider value={{ color: '#00FFB9', size: '15px' }}>
+    <IconContext.Provider value={{ color: 'black', size: '15px' }}>
     <div className="btAvaliation">
       <Link to="/avaliation" className="btPlus2">Cadastrar Avaliação<AiOutlinePlus/></Link> 
       <Link to="/Home" className="btPlus">Voltar</Link> 
@@ -307,9 +312,11 @@ const ShowAvaliation = () => {
       
             return (
               <>
+            
                 <Wrap onClick={() => toggle(avaliation.title)} key={avaliation.title}>
                   <h1>{avaliation.title}</h1>
-                  <Link to={`/EditAvaliationForm/${avaliation.id}`}  title = "Editar" className="btEdit" onClick={()=> (avaliation.id)}><BiEditAlt/></Link>
+                  
+                  <Link  to={`/EditAvaliationForm/${avaliation.id}`}  title = "Editar" className="btEdit" onClick={()=> (avaliation.id)}><BiEditAlt/></Link>
                   <Link to={`/CopyAvaliation/${avaliation.id}`}  title = "Copiar" className="btCopy" onClick={()=> (avaliation.id)}><AiOutlineCopy/> </Link>
                   <Link to="/Home" title = "Deletar" className="btDelete" onClick={()=>handleRemoveAvaliation(avaliation.id)}><MdDelete/></Link>
                   

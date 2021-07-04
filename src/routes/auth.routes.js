@@ -25,6 +25,7 @@ import {AddGroupForm} from '../Components/forms/AddGroupForm';
 
 
 
+
 import PrivateRoutes from './PrivateRoutes';
 
 
@@ -45,11 +46,14 @@ export default function AuthRoutes(){
  
         <Router history = {history}>
         <Switch>
+
+        
             
         <Route path='/' exact component={Login}/> 
         {
             <>
          <Header/>
+         
            
           <PrivateRoutes exact path='/Home'  component={Home}/>
           <PrivateRoutes path='/avaliation'  component={Avaliation} />
