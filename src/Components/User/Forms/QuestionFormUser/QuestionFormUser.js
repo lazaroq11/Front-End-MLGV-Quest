@@ -9,10 +9,10 @@ const QuestionFormUser = () => {
 	const [groupsAnswer, setGroupsAnswer] = useState([]);
 	const params = useParams();
 	const history = useHistory();
-	let [score,setScore] = useState();
+	let [score,setScore] = useState(); 
 	const [isClass, setIsClass] = useState();
-
-	var vectorAnswer = [];
+	const vectorAnswer = [];
+	const vector1 = []
 
 	
 
@@ -23,13 +23,18 @@ const QuestionFormUser = () => {
 		});
 	
 	  },[]);
+
     
-	 function LotGroupsAnswer(agreement_id, score,isClass,question_id){
+	function LotGroupsAnswer(agreement_id, score,isClass,question_id){
+
         const answer = {agreement_id,score,isClass,question_id}
-		 vectorAnswer.push(answer);	
-	
-        
+		 vectorAnswer.push(answer); 
+		  
 	   }
+      
+	  
+          
+
 
 	   console.log(vectorAnswer)
 
@@ -58,35 +63,34 @@ const QuestionFormUser = () => {
 		<div className='questionForm2'>
 		{groupsAnswer.map(group=>(
 				<div className="groupTable">
-					
 				
 					
 				<div className="cellGrid">
 				<p>{group.title}</p>
 				{group.questions.map(questions=>(
-			    <form className="form" >
+			    <form className="form" onSubmit={LotGroupsAnswer}>
 				<div className = "questionContainer">
 				<p className="question">{questions.statement}</p>
 				
 	            
 				<label for = "answer">Resposta:</label>
 				<label for = "radio-1">1</label>
-			   <input onChange = {(event)=>setScore(event.currentTarget.value)} onClick = {() => LotGroupsAnswer(params.agreement_id, score, group.classs,questions.id)} value={1} className="optionType" type="radio"  name={questions.statement} />
+			   <input onChange = {(event)=>setScore(event.target.value)}  onClick = {() => LotGroupsAnswer(params.agreement_id, 1, group.classs,questions.id)} className="optionType" type="radio"  name={questions.statement} />
 			
 			   <label for = "radio-2">2</label>	
-			   <input onChange = {(event)=>setScore(event.currentTarget.value)} onClick = {() => LotGroupsAnswer(params.agreement_id, score, group.classs,questions.id)} value={2} className="optionType" type="radio"  name={questions.statement}  />	
+			   <input onChange = {(event)=>setScore(event.target.value)}  onClick = {() => LotGroupsAnswer(params.agreement_id, 2, group.classs,questions.id)} value={2} className="optionType" type="radio"  name={questions.statement}  />	
 			   
 			   <label for = "radio-3">3</label>	
-			   <input onChange = {(event)=>setScore(event.currentTarget.value)} onClick = {() => LotGroupsAnswer(params.agreement_id, score, group.classs,questions.id)} value={3} className="optionType" type="radio"  name={questions.statement}  />
+			   <input onChange = {(event)=>setScore(event.target.value)}  onClick = {() => LotGroupsAnswer(params.agreement_id, 3, group.classs,questions.id)} value={3} className="optionType" type="radio"  name={questions.statement}  />
 			   
 			   <label for = "radio-4">4</label>	
-			   <input onChange = {(event)=>setScore(event.currentTarget.value)} onClick = {() => LotGroupsAnswer(params.agreement_id, score, group.classs,questions.id)} value={4} className="optionType" type="radio"  name={questions.statement} />
+			   <input onChange = {(event)=>setScore(event.target.value)}  onClick = {() => LotGroupsAnswer(params.agreement_id, 4, group.classs,questions.id)} value={4} className="optionType" type="radio"  name={questions.statement} />
 			   
 			   <label for = "radio-5">5</label>	
-			   <input onChange = {(event)=>setScore(event.currentTarget.value)} onClick = {() => LotGroupsAnswer(params.agreement_id, score, group.classs,questions.id)} value={5} className="optionType" type="radio"  name={questions.statement} />  
+			   <input onChange = {(event)=>setScore(event.target.value)}  onClick = {() => LotGroupsAnswer(params.agreement_id, 5, group.classs,questions.id)} value={5} className="optionType" type="radio"  name={questions.statement} />  
 			  
 			   <label for = "radio-5">N/A</label>	
-			   <input onChange = {(event)=>setScore(event.currentTarget.value)} onClick = {() => LotGroupsAnswer(params.agreement_id, score, group.classs,questions.id)} value={0} className="optionType" type="radio"  name={questions.statement} />  
+			   <input onChange = {(event)=>setScore(event.currentTarget.value)}  onClick = {() => LotGroupsAnswer(params.agreement_id, 0, group.classs,questions.id)} value={0} className="optionType" type="radio"  name={questions.statement} />  
 			   </div>
 			   
 			   </form>
