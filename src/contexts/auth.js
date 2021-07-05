@@ -51,15 +51,15 @@ export const AuthProvider = ({children}) => {
 
 
      setToken(token);
-     localStorage.setItem("@PermissionToken:token",authenticateToken.token);
-     localStorage.setItem("@PermissionType:type",authenticateToken.user.type) 
+     sessionStorage.setItem("@PermissionToken:token",authenticateToken.token);
+     sessionStorage.setItem("@PermissionType:type",authenticateToken.user.type) 
 
 },[token]);
 
       const userLogged = useCallback(()=>{
      
-      const token = localStorage.getItem("@PermissionToken:token");
-      const type = localStorage.getItem("@PermissionType:type");
+      const token = sessionStorage.getItem("@PermissionToken:token");
+      const type = sessionStorage.getItem("@PermissionType:type");
       console.log(type);
       if(token){
         return true;
