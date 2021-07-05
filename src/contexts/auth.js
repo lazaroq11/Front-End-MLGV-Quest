@@ -12,7 +12,7 @@ export const AuthContext = createContext(credentials);
 export const AuthProvider = ({children}) => {
   const history = useHistory();
     const [token,setToken] = useState(()=>{
-      const token = localStorage.getItem('@PermissionToken:token');
+      const token = sessionStorage.getItem('@PermissionToken:token');
    
 
       if(token) {
