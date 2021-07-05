@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import {Link,useParams} from 'react-router-dom';
 import { AvData } from '../AvData';
 import styled from 'styled-components';
 import { IconContext } from 'react-icons';
@@ -176,15 +176,15 @@ const Dropdown = styled.div`
     }
     .btPlanilha {
     text-decoration:none;
-    width:5.5%;
+    width:10%;
     background-color:black;
     font-weight: 600;
-    height: 100px;
+    height: 10%;
     color:white;
     border-radius:8px;
     font-size:15px;
-    margin-left:5%;
-    margin-top:-11.5%;
+    margin-left:0.1%;
+    margin-top:-0.3%;
     margin-bottom:10px;
     border:none;
     outline:none;
@@ -231,10 +231,31 @@ a{
 }
 `;
 
-const ShowAvaliation = () => {
+const data = [
+  {groupquestion:"Sistemas",class:"LP1",question:"FIFEIRO",user:"Lázaro",matricula:"07123234345",media:10,coments:"Oi",codigo:1},
+  {groupquestion:"Sistemas",class:"LP1",question:"FIFEIRO",user:"Lázaro",matricula:"07123234345",media:10,coments:"Oi",codigo:1}
+
+
+]
+
+const headers = [
+  {label: 'Grupo de Questão',key:'groupquestion'},
+  {label: 'Disciplina',key:'class'},
+  {label: 'Questão',key:'question'},
+  {label: 'Usuário',key:'user'},
+  {label: 'Matrícula',key:'matricula'},
+  {label: 'Média',key:'media'},
+  {label: 'Comentário',key:'coments'},
+  {label: 'Código',key:'codigo'}
+
+]
+
+
+const Answers = () => {
 
   const [avaliations, setAvaliations] = useState([]);
-  
+  const[csv,setCsv] = useState([])
+  const params = useParams();
   
   useEffect(()=>{
     api.get('/exam').then(response=>{
@@ -242,7 +263,21 @@ const ShowAvaliation = () => {
     });
   },[]);
 
+  
+  const csvReport = {
+    filename: 'Answers.csv',
+    headers:headers,
+    data:csv
+  };
 
+  useEffect(()=>{
+    api.get(`/csv/${params.exam_id}`).then(response=>{
+      setCsv(response.data);
+    });
+  },[]);
+
+  
+  console.log(csv);
   async function handleShowAvaliation(id) {
     const idResponse = await api.post(`/posts/${id}`);
     if (idResponse.status === 204){
@@ -271,57 +306,15 @@ const ShowAvaliation = () => {
 
 
   return (
-    
-    <IconContext.Provider value={{ color: 'black', size: '15px' }}>
-    <div className="btAvaliation">
-      <Link to="/avaliation" className="btPlus2">Cadastrar Avaliação<AiOutlinePlus/></Link> 
-      <Link to="/Home" className="btPlus">Voltar</Link> 
-      </div>
-        <div className="formDiv">    
-		<h1>Avaliações Cadastradas</h1>
-    </div>
-    
-    <AccordionSection>
-      <Container>
-      {avaliations.map(avaliation =>{
-      
-            return (
-              <>
-            
-                <Wrap onClick={() => toggle(avaliation.title)} key={avaliation.title}>
-                  <h1>{avaliation.title}</h1>
-                  
-                  <Link  to={`/EditAvaliationForm/${avaliation.id}`}  title = "Editar" className="btEdit" onClick={()=> (avaliation.id)}><BiEditAlt/></Link>
-                  <Link to={`/CopyAvaliation/${avaliation.id}`}  title = "Copiar" className="btCopy" onClick={()=> (avaliation.id)}><AiOutlineCopy/> </Link>
-                  <Link to="/Home" title = "Deletar" className="btDelete" onClick={()=>handleRemoveAvaliation(avaliation.id)}><MdDelete/></Link>
-                  
-                </Wrap>
-                {clicked === avaliation.title ? (
-                  <Dropdown>
-                    <p>Nome: {avaliation.title}</p>
-                    <p>Descrição: {avaliation.description}</p>
-                    <p>Data de Inicio: {avaliation.started_at}</p>
-                    <p>Data Final: {avaliation.ended_at }</p>
-                    <p>Anonimo: {avaliation.allow_anonymous===1?'Sim':'Não'}</p>
-                    
-                    
-          <Link to={`/DropzoneGroups/${avaliation.id}`} className="btGroup">Grupos</Link>
-           <Link to={`/Answers/${avaliation.id}`} className="btPlanilha">Exportar</Link>
-          
-                  </Dropdown>
-                ) : null}
-              </>
-              
-            );
-            
-          })}
-          
-          
-        </Container>
-      </AccordionSection>
-    </IconContext.Provider>
-   
+       <>
+         <div className = "formDiv">
+             <h1>Gráficos e Dados</h1>
+         </div>
+         <div className="btPlanilha">
+        <button className="btPlanilha"><CSVLink {...csvReport}>Exportar Planilha</CSVLink></button>
+</div> 
+</>
   );
 };
 
-export default ShowAvaliation;
+export default Answers;

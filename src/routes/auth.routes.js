@@ -22,6 +22,7 @@ import {EditQuestionForm} from '../Components/forms/EditQuestionForm';
 import {EditGroupForm} from '../Components/forms/EditGroupForm';
 import CopyAvaliation from '../Components/forms/CopyAvaliation';
 import {AddGroupForm} from '../Components/forms/AddGroupForm';
+import Answers from '../Components/pages/Answers'
 
 
 
@@ -79,6 +80,7 @@ export default function AuthRoutes(){
           <PrivateRoutes path = '/QuestionFormUser/:id/:agreement_id' component = {QuestionFormUser}/>
           <PrivateRoutes path = '/Terms/:exam_id/:allow_anonymous' component = {Terms}/>
           <PrivateRoutes path = '/Acknowledgment' component = {Acknowledgment}/> 
+          <PrivateRoutes path = '/Answers' component = {Answers}/>
           </>
           }
 </Switch>

@@ -25,14 +25,14 @@ export function Header(){
     return(       
     <header className={styles.headerContainer}>
       
-     <img src="/logo.png" alt="MLGV QUEST"/>
+     <img src="/logo.png" title="QUESTIONÁRIO É COM A GENTE!" alt="MLGV QUEST"/>
       
  
        
       
       
        <span>{currentDate}</span>
-       <Link to = "/" className="btLogout" onClick={handleLogout}><BiLogOut/></Link>
+       <Link to = "/" className="btLogout" title = "Sair" onClick={handleLogout}><BiLogOut/></Link>
     </header>             
     
     )
