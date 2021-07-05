@@ -17,7 +17,7 @@ export const QuestionsContainer = styled.div `
 
     .box-info{
       background-color: black;
-      width: 400px !important;
+      width: 280px !important;
         border-radius: 6px;
         align-items: center;
         padding: 15px;
@@ -58,8 +58,17 @@ export const QuestionsContainer = styled.div `
             position:absolute;
             color:white;
         }
-    }
 
+        .required{
+          font-size:10px;
+         font-weight: bolder;
+         margin-left:1%;
+         margin-top:8%;
+         float:left;
+         position:relative;
+         color:darkblue;
+       }
+    }
     `;
 
 
@@ -74,6 +83,8 @@ const DropzoneQuestions = () => {
       console.log(response.data)      
     });
   },[]);
+
+  
  
 
 
@@ -87,14 +98,14 @@ const DropzoneQuestions = () => {
   }
     // layout is an array of objects, see the demo for more complete usage
     const ResponsiveGridLayout = WidthProvider(Responsive);
-    
     return (
       <>
        <div className="btAvaliation">
-      <Link to="/questions" className="btPlus">Cadastrar Perguntas<AiOutlinePlus/></Link> 
+      <Link to="/questions" className="btPlus2">Cadastrar Perguntas<AiOutlinePlus/></Link>
+      <Link to={`/DropzoneGroups/${params.exam_id}`} className="btPlus">Voltar</Link> 
       </div>
       <div className="formDiv">
-      <h1>Grupo de Perguntas</h1>
+      <h1>Perguntas</h1>
       </div>
       <QuestionsContainer> 
     <ResponsiveGridLayout
@@ -110,11 +121,10 @@ const DropzoneQuestions = () => {
     
         <div className="box-info" key={question.id} data-grid={{x: 0, y: 0, w: 1, h: 1}}> 
         <p>{question.statement}</p>
-        
-        <p >{question.required}</p> 
+         
         <Link to={`/EditQuestionForm/${params.exam_id}/${params.id}/${question.id}`} title="Editar" className="btEdit"><BiEditAlt/></Link>
         <Link to="/ShowAvaliation" title="Deletar" className="btDelete" onClick={()=>handleRemoveQuestion(question.id)}><MdDelete/></Link> 
-      
+        <p className = "required">{question.required === true?'Obrigatória':''}</p>
         </div>
         ))}
     </ResponsiveGridLayout>

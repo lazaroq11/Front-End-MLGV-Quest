@@ -1,24 +1,38 @@
+import React, { useState} from 'react'
+
 import format from 'date-fns/format';
 import ptBR from 'date-fns/locale/pt-BR';
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import { BiLogOut } from "react-icons/bi";
 import styles from  './styles.module.scss';
+import { login } from "../../services/auth";
+import api from '../../services/api';
+
+
 
 export function Header(){
+    const history = useHistory();
     const currentDate = format(new Date(), 'EEEEEE, d, MMMM',{
         locale:ptBR,
     });
+
+        const handleLogout = () => {
+            localStorage.removeItem('@mlgv:TOKEN_KEY');
+            history.push('/');
+        }
+    
     
     return(       
     <header className={styles.headerContainer}>
-       <Link to="/Home" className="btDelete"> <img src="/logo.png" alt="MLGV QUEST"/></Link>
+      
+     <img src="/logo.png" title="QUESTIONÁRIO É COM A GENTE!" alt="MLGV QUEST"/>
       
  
        
       
       
        <span>{currentDate}</span>
-       <Link to="/" className="btLogout"><BiLogOut/></Link>
+       <Link to = "/" className="btLogout" title = "Sair" onClick={handleLogout}><BiLogOut/></Link>
     </header>             
     
     )

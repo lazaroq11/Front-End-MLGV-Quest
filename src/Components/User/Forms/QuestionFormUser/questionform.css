@@ -1,0 +1,179 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,700;1,100;1,500;1,700&display=swap');
+
+
+.groupTable p{
+  font-size:20px;
+  font-weight: bolder;
+  font-style: italic;
+  margin-bottom:4px;
+}
+
+.questionForm2{
+ 
+ margin-top:20px;
+ margin-left:30px;
+
+ margin-top:30px;
+margin-left:30px;
+ 
+}
+
+.cellGrid{
+  border-radius: 1px;
+  border-color:white;
+  border-top: 1px;
+  border-bottom: 1px;
+  border-left:0px;
+  border-style: solid;
+  border-right: 0px;
+}
+
+.questionForm2 label{
+    padding: 9px;
+    font-size:15px;
+    margin-top:-10px;
+    font-style: italic;
+}
+
+.questionForm2 .group{
+  font-size:15px;
+  margin-bottom:1px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.questionForm2 .question{
+  margin-top:10px;
+  font-size:14px;
+  color:black;
+  font-style: italic;
+  font-family:  sans-serif;
+  margin-bottom:1px;
+}
+
+
+
+
+ .form .group{
+   margin-top:10px;
+  font-style:italic;
+  font-weight:bolder;
+  font-size:19px;
+ 
+}
+
+.form option{
+  margin-top:10px;
+  margin-left:10px;
+  font-size:30px;
+  padding-left:30px;
+}
+
+.coments{
+  margin-top: 40px;
+}
+
+.coments label{
+  margin-top:30px;
+  margin-left:1%;
+  font-style: italic;
+  
+}
+
+ .answer{
+  margin-top:30px;
+  margin-left:10px;
+  font-style: italic;
+  
+}
+
+.coments textarea{
+  color:black;
+  border-color:black;
+  border-radius: 10px;
+  outline: none;
+  width:300px;
+  height:80px;
+  margin-left:20px;
+  
+
+}
+
+
+
+.btQuest{
+  margin-top:0px;
+  margin-left:10px;
+  margin-bottom:10px;
+  
+ 
+
+}
+
+.btEnviar{
+  width:8%;
+  background-color:black;
+  font-weight: 800;
+  height: 30px;
+  color:white;
+  border-radius:8px;
+  font-size:12px;
+  margin-top:10px;
+  margin-left:10px;
+  border:none;
+  outline:none;
+  margin-right:10px;
+   
+  
+  }
+  .btEnviar:hover{
+      background-color: #171719;
+      cursor:pointer;
+      border:none;
+      outline-width: 0;
+  }
+
+  .btCancelar{
+    width:8%;
+    background-color:black;
+    font-weight: 800;
+    height: 30px;
+    color:white;
+    border-radius:8px;
+    font-size:12px;
+    margin-top:15px;
+    margin-left:10px;
+    border:none;
+    outline:none;
+    text-decoration: none;
+    }
+    .btCancelar:hover{
+        background-color: #171719;
+        cursor:pointer;
+        border:none;
+        outline-width: 0;
+        text-decoration: none;
+    }
+
+    .btCancelar a{
+       text-decoration: none;
+       color:white;
+    }
+
+      
+   .questionContainer p{
+     margin-left:10px;
+   }
+
+   .questionContainer label{
+     margin-left:1px;
+   }
+
+   .questionContainer .questionRequired{
+    margin-left: auto;
+    margin-right: auto;
+    display:flex;
+    position: absolute;
+    margin-top:auto;
+     
+   }

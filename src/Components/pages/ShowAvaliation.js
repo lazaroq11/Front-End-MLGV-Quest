@@ -6,6 +6,8 @@ import { IconContext } from 'react-icons';
 import { MdDelete } from "react-icons/md";
 import { BiEditAlt } from "react-icons/bi";
 import {AiOutlinePlus} from "react-icons/ai";
+import {dateFormat} from 'dateformat';
+import {CSVLink} from "react-csv"
 
 import api from '../../services/api';
 import { AiOutlineCopy } from "react-icons/ai";
@@ -153,7 +155,7 @@ const Dropdown = styled.div`
     color:white;
     border-radius:8px;
     font-size:15px;
-    margin-bottom: 40%;
+    margin-bottom: 9%;
     border:none;
     outline:none;
     cursor:pointer;
@@ -165,6 +167,37 @@ const Dropdown = styled.div`
     }
 
     .btGroup:hover{
+      background-color: #171719;
+        cursor:pointer;
+        border:none;
+        outline-width: 0;
+        transform: scale(1)
+
+    }
+    .btPlanilha {
+    text-decoration:none;
+    width:12%;
+    background-color:black;
+    font-weight: 600;
+    height: 100px;
+    color:white;
+    border-radius:8px;
+    font-size:15px;
+    margin-left:5%;
+    margin-top:-11.5%;
+    margin-bottom:10px;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    justify-content: center;
+    transform: scale(0.9);
+    transition: all ease 0.4s;
+    
+ 
+    }
+
+    
+    .btPlanilha:hover{
       background-color: #171719;
         cursor:pointer;
         border:none;
@@ -193,6 +226,28 @@ const Dropdown = styled.div`
  }
 `;
 
+const data = [
+  {groupquestion:"Sistemas"},
+  {class:"LP1"}
+]
+
+const headers = [
+  {label: 'Grupo de Questão',key:'groupquestion'},
+  {label: 'Disciplina',key:'class'},
+  {label: 'Questão',key:'question'},
+  {label: 'Usuário',key:'user'},
+  {label: 'Matrícula',key:'matricula'},
+  {label: 'Média',key:'media'},
+  {label: 'Comentário',key:'coments'},
+  {label: 'Código',key:'codigo'}
+
+]
+
+const csvReport = {
+  filename: 'Answers.csv',
+  headers:headers,
+  data:data
+};
 const ShowAvaliation = () => {
 
   const [avaliations, setAvaliations] = useState([]);
@@ -200,11 +255,14 @@ const ShowAvaliation = () => {
   useEffect(()=>{
     api.get('/exam').then(response=>{
       setAvaliations(response.data);
-      
     });
+      
+    
+    
+    
   },[]);
 
-
+  
   async function handleShowAvaliation(id) {
     const idResponse = await api.post(`/posts/${id}`);
     if (idResponse.status === 204){
@@ -234,9 +292,10 @@ const ShowAvaliation = () => {
 
   return (
     
-    <IconContext.Provider value={{ color: '#00FFB9', size: '15px' }}>
+    <IconContext.Provider value={{ color: 'black', size: '15px' }}>
     <div className="btAvaliation">
-      <Link to="/avaliation" className="btPlus">Cadastrar Avaliação<AiOutlinePlus/></Link> 
+      <Link to="/avaliation" className="btPlus2">Cadastrar Avaliação<AiOutlinePlus/></Link> 
+      <Link to="/Home" className="btPlus">Voltar</Link> 
       </div>
         <div className="formDiv">    
 		<h1>Avaliações Cadastradas</h1>
@@ -245,6 +304,7 @@ const ShowAvaliation = () => {
     <AccordionSection>
       <Container>
       {avaliations.map(avaliation =>{
+      
             return (
               <>
                 <Wrap onClick={() => toggle(avaliation.title)} key={avaliation.title}>
@@ -259,11 +319,12 @@ const ShowAvaliation = () => {
                     <p>Nome: {avaliation.title}</p>
                     <p>Descrição: {avaliation.description}</p>
                     <p>Data de Inicio: {avaliation.started_at}</p>
-                    <p>Data Final: {avaliation.ended_at}</p>
-                    <p>Anonimo: {avaliation.allow_anonymous}</p>
+                    <p>Data Final: {avaliation.ended_at }</p>
+                    <p>Anonimo: {avaliation.allow_anonymous===1?'Sim':'Não'}</p>
                     
                     
           <Link to={`/DropzoneGroups/${avaliation.id}`} className="btGroup">Grupos</Link>
+          <Link to={`/Answers/${avaliation.id}`} className="btPlanilha">Exportar Planilha</Link>
                   </Dropdown>
                 ) : null}
               </>

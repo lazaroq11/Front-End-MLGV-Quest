@@ -7,7 +7,7 @@ import '../../App.css';
 
 
 export function AddGroupForm(){
-	const [classs, setClasss] = useState();
+	const [classs, setClasss] = useState(false);
 	const [category, setCategory] = useState([]);
 	const [title, setTitle] = useState();
     const history = useHistory();

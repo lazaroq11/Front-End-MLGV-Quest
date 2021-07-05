@@ -1,29 +1,37 @@
-import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState, useContext, useCallback, useEffect} from 'react'
+import {Link,useHistory} from 'react-router-dom'
 import styles from './styles.module.scss';
 import { VscAccount } from "react-icons/vsc";
 import { MdLockOutline } from "react-icons/md";
 import api from '../../services/api';
+import * as auth from '../../services/auth'
+import {useAuth} from '../../contexts/auth'
 
 
 
 
-export default function Login({history}){
 
-    const[email,setEmail] = useState('');
+export default function Login(){
+    const[email,setEmail] = useState();
     const[password,setPassword] = useState();
+    const{ signIn } = useAuth();
 
-    async function handleSubmit(e){
-        e.preventDefault();
-    
-    await api.post('/session',{
-        email,
-        password,
-    });
-       
-    history.push("/Home");
+  
    
-    }
+  
+    const handleSubmit = useCallback(async(e)=>{
+        e.preventDefault();
+        try{
+        await signIn({email,password});
+        }catch(error){
+            const message = error.response.status
+            if(message===400){
+                alert("Usuário ou senha incorretos!")
+            }
+        }
+       
+    },[email,password]);
+
 
 
 
@@ -38,14 +46,14 @@ export default function Login({history}){
                 <div className={styles.inputUserLogin}>
                     
                       <VscAccount/>
-                      <input required type="text" id="email" name="email" placeholder="Email"
+                      <input  type="text" id="email" name="email" placeholder="Email"
                       value={email}
                       onChange={e=>setEmail(e.target.value)}/>
                 </div>
 
                 <div className={styles.inputPassLogin}>
                       <MdLockOutline/>
-                      <input required type="password" placeholder="Senha"
+                      <input  type="password" placeholder="Senha"
                       value={password}
                       onChange={e=>setPassword(e.target.value)} />
                 </div>

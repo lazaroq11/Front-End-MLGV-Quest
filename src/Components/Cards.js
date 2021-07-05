@@ -26,17 +26,14 @@ function Cards() {
               text='Cadastrar Perguntas'
               path='/questions'/>
 
-            <CardItem
-              src='images/img-answers.jpg'
-              alt = "answers"
-              text='Respostas'
-              path='/Home'/>
+        
               
               <CardItem 
               src='images/img-copy.jpg'
               alt = "copyAvaliation"
               text='Avaliações cadastradas'
               path='/ShowAvaliation' />
+              
             </ul>
         </div>
       </div>

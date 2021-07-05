@@ -13,7 +13,7 @@ export function AddQuestion(){
 	const [selectedGroup, setSelectedGroup] = useState();
 	const [selectedAvaliation, setSelectedAvaliation] = useState();
 	const [image_url, setImage] = useState(null);
-	const [required, setRequired]= useState();
+	const [required, setRequired]= useState(false);
 	const [image_alt, setImageAlt] = useState();
     const history = useHistory(); 
     const params = useParams();
@@ -24,8 +24,7 @@ export function AddQuestion(){
         e.preventDefault();
 			
 		
-		
-		
+	
 
 	
     await api.post(`/question/${params.exam_id}/${params.group_id}`,{
@@ -41,7 +40,10 @@ export function AddQuestion(){
 	history.push('/Home');
     }
 	
-
+	
+	const onChange = (e) =>{
+		const file = e.target.files[0];
+	};
 
 	useEffect(()=>{
 		api.get(`/exam`).then(response=>{
@@ -83,7 +85,7 @@ export function AddQuestion(){
 					</div>
 					
 		
-			<input name="image_url" type="file"   alt={image_alt} value={image_url} onChange={e=>setImage(e.target.value)}></input>	
+			<input  name="image_url" type="file" onChange={onChange} alt={image_alt} value={image_url}></input>	
 			<br></br>
 
 			
