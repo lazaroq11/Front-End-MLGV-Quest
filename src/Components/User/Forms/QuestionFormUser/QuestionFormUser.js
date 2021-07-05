@@ -36,13 +36,13 @@ const QuestionFormUser = () => {
 	    
 	  console.log(subject);
 
-	  function LotGroupsAnswer(agreement_id, score,isClass,question_id){
+	  function LotGroupsAnswer(agreement_id, score,isClass,question_id,class_id){
         const findAnswer = vectorAnswer.find(answer=>answer.question_id === question_id)
 		if(findAnswer){
 			const index = vectorAnswer.findIndex(answer=>answer.question_id === question_id)
 		   vectorAnswer[index].score = score;
 		}else{
-			const answer = {agreement_id,score,isClass,question_id}
+			const answer = {agreement_id,score,isClass,question_id,class_id}
 			vectorAnswer.push(answer); 
 			setAnswer(vectorAnswer);
 			 
@@ -55,15 +55,17 @@ const QuestionFormUser = () => {
 		answer:vectorAnswer,
 		comment
 		
-		});	 
+		});	
+		
+	 console.log(vectorAnswer);
 	    
 		
-	    history.push("/Acknowledgment");
+	   
 		 const {length} = vectorAnswer
 		 for(let i = 0; i<length; i++){
 			 vectorAnswer.pop();
 		 }
- 		
+		 history.push("/Acknowledgment");
 		
 	}
 
@@ -81,7 +83,7 @@ const QuestionFormUser = () => {
 				
 				<div className="groupTable">
 						{console.log(group)}
-				{group.classs ==true && subject.map(subjects=>(	
+				{group.classs == true ? subject.map(subjects=>(	
 				<div className="cellGrid">
 				<p>{group.title}</p>
 				
@@ -89,36 +91,37 @@ const QuestionFormUser = () => {
 			  		 
 				<div className = "questionContainer">
 					
-				<fieldset required  >
+			
 				<p className="questionRequired">{questions.required === true?'*':''}</p>
 				<p className="question">{questions.statement}</p>
 				
 				<label for = "answer">Resposta:</label>
+                
 				<label for = "radio-1">1</label>
-			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 1, group.classs,questions.id)} className="optionType" type="radio"  name={questions.statement} />
+			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 1, group.classs,questions.id,subject.class_id)} value={1} className="optionType" type="radio" name={subject.class_id + questions.statement}  />
 			
 			   <label for = "radio-2">2</label>	
-			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 2, group.classs,questions.id)} value={2} className="optionType" type="radio"  name={questions.statement}  />	
+			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 2, group.classs,questions.id,subject.class_id)} value={2} className="optionType" type="radio" name={subject.class_id + questions.statement}  />	
 			   
 			   <label for = "radio-3">3</label>	
-			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 3, group.classs,questions.id)} value={3} className="optionType" type="radio"  name={questions.statement}  />
+			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 3, group.classs,questions.id,subject.class_id)} value={3} className="optionType" type="radio" name={subject.class_id + questions.statement} />
 			   
 			   <label for = "radio-4">4</label>	
-			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 4, group.classs,questions.id)} value={4} className="optionType" type="radio"  name={questions.statement} />
+			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 4, group.classs,questions.id,subject.class_id)} value={4} className="optionType" type="radio" name={subject.class_id + questions.statement} />
 			   
 			   <label for = "radio-5">5</label>	
-			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true}  onClick = {() => LotGroupsAnswer(params.agreement_id, 5, group.classs,questions.id)} value={5} className="optionType" type="radio"  name={questions.statement} />  
+			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true}  onClick = {() => LotGroupsAnswer(params.agreement_id, 5, group.classs,questions.id,subject.class_id)} value={5} className="optionType" type="radio" name={subject.class_id + questions.statement}  />  
 			  
 			   <label for = "radio-5">N/A</label>	
-			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 0, group.classs,questions.id)} value={0} className="optionType" type="radio"  name={questions.statement} />  
-			   </fieldset>
+			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 0, group.classs,questions.id,subject.class_id)} value={0} className="optionType" type="radio" name={subject.class_id + questions.statement}  />  
+			  
 			   </div>
 			    ))}
 		 
 			  
 			    
 			   </div>
-              ))}:(
+              )):(
 				   <div className="cellGrid">
 				<p>{group.title}</p>
 				
@@ -126,13 +129,13 @@ const QuestionFormUser = () => {
 			  		 
 				<div className = "questionContainer">
 					
-				<fieldset required  >
+				<fieldset required >
 				<p className="questionRequired">{questions.required === true?'*':''}</p>
 				<p className="question">{questions.statement}</p>
 				
 				<label for = "answer">Resposta:</label>
 				<label for = "radio-1">1</label>
-			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 1, group.classs,questions.id)} className="optionType" type="radio"  name={questions.statement} />
+			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 1, group.classs,questions.id)} className="optionType" type="radio" value={1} name={questions.statement} />
 			
 			   <label for = "radio-2">2</label>	
 			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 2, group.classs,questions.id)} value={2} className="optionType" type="radio"  name={questions.statement}  />	
@@ -150,11 +153,8 @@ const QuestionFormUser = () => {
 			   <input onChange = {(event)=>setScore(event.target.value)} required={questions.required==true} onClick = {() => LotGroupsAnswer(params.agreement_id, 0, group.classs,questions.id)} value={0} className="optionType" type="radio"  name={questions.statement} />  
 			   </fieldset>
 			   </div>
-			    ))}
-		 
-			  
-			    
-			   </div>)
+			    ))} 
+			   </div>)}
 
 
 

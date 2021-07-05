@@ -176,7 +176,7 @@ const Dropdown = styled.div`
     }
     .btPlanilha {
     text-decoration:none;
-    width:5.5%;
+    width:12%;
     background-color:black;
     font-weight: 600;
     height: 100px;
@@ -224,25 +224,45 @@ const Dropdown = styled.div`
        transform:scale(0.9);
        transition:all ease 0.4s;
  }
-
-a{
-  text-decoration:none;
-  color:white;
-}
 `;
 
+const data = [
+  {groupquestion:"Sistemas"},
+  {class:"LP1"}
+]
+
+const headers = [
+  {label: 'Grupo de Questão',key:'groupquestion'},
+  {label: 'Disciplina',key:'class'},
+  {label: 'Questão',key:'question'},
+  {label: 'Usuário',key:'user'},
+  {label: 'Matrícula',key:'matricula'},
+  {label: 'Média',key:'media'},
+  {label: 'Comentário',key:'coments'},
+  {label: 'Código',key:'codigo'}
+
+]
+
+const csvReport = {
+  filename: 'Answers.csv',
+  headers:headers,
+  data:data
+};
 const ShowAvaliation = () => {
 
   const [avaliations, setAvaliations] = useState([]);
-  
-  
+
   useEffect(()=>{
     api.get('/exam').then(response=>{
       setAvaliations(response.data);
     });
+      
+    
+    
+    
   },[]);
 
-
+  
   async function handleShowAvaliation(id) {
     const idResponse = await api.post(`/posts/${id}`);
     if (idResponse.status === 204){
@@ -287,11 +307,9 @@ const ShowAvaliation = () => {
       
             return (
               <>
-            
                 <Wrap onClick={() => toggle(avaliation.title)} key={avaliation.title}>
                   <h1>{avaliation.title}</h1>
-                  
-                  <Link  to={`/EditAvaliationForm/${avaliation.id}`}  title = "Editar" className="btEdit" onClick={()=> (avaliation.id)}><BiEditAlt/></Link>
+                  <Link to={`/EditAvaliationForm/${avaliation.id}`}  title = "Editar" className="btEdit" onClick={()=> (avaliation.id)}><BiEditAlt/></Link>
                   <Link to={`/CopyAvaliation/${avaliation.id}`}  title = "Copiar" className="btCopy" onClick={()=> (avaliation.id)}><AiOutlineCopy/> </Link>
                   <Link to="/Home" title = "Deletar" className="btDelete" onClick={()=>handleRemoveAvaliation(avaliation.id)}><MdDelete/></Link>
                   
@@ -306,8 +324,7 @@ const ShowAvaliation = () => {
                     
                     
           <Link to={`/DropzoneGroups/${avaliation.id}`} className="btGroup">Grupos</Link>
-           <Link to={`/Answers/${avaliation.id}`} className="btPlanilha">Exportar</Link>
-          
+          <Link to={`/Answers/${avaliation.id}`} className="btPlanilha">Exportar Planilha</Link>
                   </Dropdown>
                 ) : null}
               </>

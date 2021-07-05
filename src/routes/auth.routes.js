@@ -80,7 +80,7 @@ export default function AuthRoutes(){
           <PrivateRoutes path = '/QuestionFormUser/:id/:agreement_id' component = {QuestionFormUser}/>
           <PrivateRoutes path = '/Terms/:exam_id/:allow_anonymous' component = {Terms}/>
           <PrivateRoutes path = '/Acknowledgment' component = {Acknowledgment}/> 
-          <PrivateRoutes path = '/Answers' component = {Answers}/>
+          <PrivateRoutes path = '/Answers/:exam_id' component = {Answers}/>
           </>
           }
 </Switch>
