@@ -1,34 +1,75 @@
+.container-box{
+    border-radius:10px;
+    border-style:dashed;
+    border-color:black;
+    width:35%;
+    align-items: center;
+    margin-left:33%;
+    margin-top:13px;
+}
+
 .container-acknow h1{
-    margin-top:6%;
+    margin-top:3%;
     font-weight:600;
     color:black;
-    margin-left:35%;
+    margin-left:18%;
     align-items:center;
     text-align: center;
-    font-size:55px;
+    font-size:30px;
     word-wrap: break-word;
-    width:400px;
+    
+    
+    
    
 }
 
+.codSort{
+    margin-top:10px;
+    margin-right:10px;
+    border-radius: 26px;
+    border-style: solid;
+    border-width: 10px;
+    margin-left: 30px;
+    border-color:black;
+    padding: 8rem;
+    padding-left: 4rem;
+    border-bottom-width: 30%;
+}
+
+.container-msgs{
+    margin-top:10px;
+    margin-right:10px;
+    margin-left: 30px;
+    padding: 8rem;
+    padding-left: 4rem;
+    border-radius: 10px;
+    border-color:black;
+
+    
+}
+
+.container-msgs h1{
+    font-size:20px;
+   
+}
 
 .btnAcknow{
     margin-top:2%;
-    margin-left:45%;
+    margin-left:48%;
 }  
 
 
 .btnAcknow a{
-    width:140%;
+    width:80%;
     background-color:black;
     font-weight: 600;
     font-style: italic;
     height: 100px;
     color:white;
-    border-radius:8px;
-    font-size:20px;
+    border-radius:2px;
+    font-size:14px;
     margin-top:10px;
-    margin-left:-20px;
+    margin-left:-26px;
     border:none;
     outline:none;
     text-decoration:none;

@@ -176,7 +176,7 @@ const Dropdown = styled.div`
     }
     .btPlanilha {
     text-decoration:none;
-    width:12%;
+    width:4.5%;
     background-color:black;
     font-weight: 600;
     height: 100px;
@@ -324,7 +324,7 @@ const ShowAvaliation = () => {
                     
                     
           <Link to={`/DropzoneGroups/${avaliation.id}`} className="btGroup">Grupos</Link>
-          <Link to={`/Answers/${avaliation.id}`} className="btPlanilha">Exportar Planilha</Link>
+          <Link to={`/Answers/${avaliation.id}`} className="btPlanilha">Dados</Link>
                   </Dropdown>
                 ) : null}
               </>

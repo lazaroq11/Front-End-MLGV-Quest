@@ -8,7 +8,11 @@
   font-style: italic;
   margin-bottom:4px;
 }
-
+.avTitle{
+  font-size:16px;
+  font-style: italic;
+  font-weight: 500;
+}
 .questionForm2{
  
  margin-top:20px;

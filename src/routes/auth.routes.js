@@ -77,9 +77,9 @@ export default function AuthRoutes(){
           <PrivateRoutes exact path='/HomeUser' component={HomeUser}/>  
           <PrivateRoutes path = '/ShowAvaliationUser' component = {ShowAvaliationUser}/>
           <PrivateRoutes path = '/Modal' component={Modal}/>
-          <PrivateRoutes path = '/QuestionFormUser/:id/:agreement_id' component = {QuestionFormUser}/>
+          <PrivateRoutes path = '/QuestionFormUser/:exam_id/:agreement_id' component = {QuestionFormUser}/>
           <PrivateRoutes path = '/Terms/:exam_id/:allow_anonymous' component = {Terms}/>
-          <PrivateRoutes path = '/Acknowledgment' component = {Acknowledgment}/> 
+          <PrivateRoutes path = '/Acknowledgment/:codigo/:exam' component = {Acknowledgment}/> 
           <PrivateRoutes path = '/Answers/:exam_id' component = {Answers}/>
           </>
           }

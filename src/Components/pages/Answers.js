@@ -4,15 +4,15 @@ import {CSVLink} from "react-csv"
 import api from '../../services/api';
 
 const headers = [
-  {label: 'Grupo de Questão',key:'groupquestion'},
-  {label: 'Disciplina',key:'class'},
-  {label: 'Questão',key:'question'},
   {label: 'Usuário',key:'user'},
   {label: 'Matrícula',key:'matricula'},
-  {label: 'Média',key:'media'},
+  {label: 'Disciplina',key:'class'},
+  {label:'Grupo de Questão',key:'groupquestion'},
+  {label: 'Questão',key:'question'},
+  {label: 'Alternativa',key:'score'},
   {label: 'Comentário',key:'coments'},
+  {label: 'Média',key:'media'},
   {label: 'Código',key:'codigo'}
-
 ]
 
 
@@ -51,7 +51,7 @@ const Answers = () => {
           <div className="btAvaliation">
           <Link to="/ShowAvaliation" className="btPlus">Voltar</Link> 
           </div>
-         <div className = "formDiv2">
+         <div className = "formDiv">
              <h1>Dados</h1>
          </div>
            <div className = "btQuest">

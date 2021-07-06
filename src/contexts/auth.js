@@ -12,7 +12,7 @@ export const AuthContext = createContext(credentials);
 export const AuthProvider = ({children}) => {
   const history = useHistory();
     const [token,setToken] = useState(()=>{
-      const token = sessionStorage.getItem('@PermissionToken:token');
+      const token = localStorage.getItem('@PermissionToken:token');
    
 
       if(token) {
@@ -51,15 +51,15 @@ export const AuthProvider = ({children}) => {
 
 
      setToken(token);
-     sessionStorage.setItem("@PermissionToken:token",authenticateToken.token);
-     sessionStorage.setItem("@PermissionType:type",authenticateToken.user.type) 
+     localStorage.setItem("@PermissionToken:token",authenticateToken.token);
+     localStorage.setItem("@PermissionType:type",authenticateToken.user.type) 
 
 },[token]);
 
       const userLogged = useCallback(()=>{
      
-      const token = sessionStorage.getItem("@PermissionToken:token");
-      const type = sessionStorage.getItem("@PermissionType:type");
+      const token = localStorage.getItem("@PermissionToken:token");
+      const type = localStorage.getItem("@PermissionType:type");
       console.log(type);
       if(token){
         return true;
